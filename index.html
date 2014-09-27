@@ -2,15 +2,24 @@
 <head>
 	<meta charset="utf-8">
 	<title>CodeHard Developers</title>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,300|Roboto+Condensed' rel='stylesheet' type='text/css'>
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 	<link rel=stylesheet href="css/bootstrap.min.css">
 	<link rel=stylesheet href="css/layout.css">
 </head>
-<body>
-	<div>
-		
+<body ng-app="codehardApp" class="ng-cloak">
+	<div ng-controller="IndexController as iCtrl">
+		<header id="header" class="">
+			<div class="container">
+				<div></div>
+			</div>
+		</header><!-- /header -->
 	</div>
 	<script src="js/jquery-1.7.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/angular.min.js"></script>
+
+	<script src="app.js"></script>
+	<script src="sections/index/index_controller.js"></script>
 </body>
 </html>
