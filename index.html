@@ -18,7 +18,7 @@
 					<nav class="nav" ng-controller="NavController as nCtrl">
 					    <ul>
 					        <li ng-repeat="nav in nCtrl.navList">
-					      		<a ng-class="{selected: nCtrl.getSelected(nav)}" ng-href="#/{{nav.hash}}" ng-bindonce="nav.title"></a>
+					      		<a ng-class="{selected: nCtrl.getSelected(nav)}" ng-href="#/{{nav.hash}}" ng-bind="nav.title"></a>
 					        </li>
 					    </ul>
 					</nav>
