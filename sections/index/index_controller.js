@@ -1,6 +1,7 @@
 angular.module('codehardApp')
-    .controller('IndexController', ['IndexService', function(IndexService) {
+    .controller('IndexController', ['IndexService',
+        function(IndexService) {
 
-
+        	
         }
     ]);

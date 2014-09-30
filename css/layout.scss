@@ -95,6 +95,8 @@
 		&, body{
 			margin: 0;
 			padding: 0;
+
+			font-size: 100%;
 		}
 	}
 
@@ -108,44 +110,107 @@
 	}
 
 	.inline-block-child > * {
-		display: inline-block;
+		display: inline-block;			
+	}
 
+	.inline-block-child {
 		.align-top{
 			vertical-align: top;
 		}	
 
 		.align-middle{
 			vertical-align: middle;
-		}	
+		}
+	}
+
+	@mixin element($element){
+		@for $i from 0 through 17 {					
+			#{0% + ($i * 5.88235294118)} { #{$element} :  nth($color-collection, $i + 1); }
+		}
 	}
 
 	@include keyframes(logo-color) {
-		@for $i from 0 through 17 {					
-			#{0% + ($i * 5.88235294118)} { background-color: nth($color-collection, $i + 1); }
-		}
+		@include element(background-color);
+	}
+
+	@include keyframes(nav-color) {
+		@include element(color);
 	}	
 
 	header{
 		background-color: #fff;
-		height: 115px;
+		height: 135px;
 		top: 0;
 		left: 0;
 		width: 100%;
 		z-index: 100010;
-		padding: 5px 15px;
+		padding: 15px;
+		@include transition(all 0.5s ease-in-out);
 
 		.logo {
 			width:105px;
 			height:105px;
 			background:transparent url('../images/logo.png') no-repeat center;
+			background-size:contain;
 			z-index: 1;			
-			@include animation('logo-color 25s infinite ease-in-out alternate-reverse');			
+			@include animation('logo-color 20s infinite ease-in-out alternate-reverse');			
+		}
+
+		nav {
+			margin-top: 50px;
+
+			li{
+				display: inline-block;	
+
+				& > a {
+					display: block;
+					padding: 5px 5px 10px 5px;
+					margin: 5px 15px;
+					color: #4C4A4A;
+					border-bottom: transparent 4px solid;
+					@include transition(all 0.2s ease-in-out);
+					@include font-size(22px);
+
+					&:hover, &:focus, &.selected{
+						color: #0DBAC9;
+						text-decoration: none;
+						border-bottom-color: #474747;
+						padding-bottom: 25px;	
+						@include animation('nav-color 5s infinite ease-in-out alternate');
+					}
+				}		
+			}
+		}
+
+
+		&.header-collapse{
+			height: 80px;
+			padding: 10px;
+
+			.logo{
+				width:60px;
+				height:60px;
+			}
+
+			.nav{
+				margin-top:5px;
+
+				li{
+					& > a {
+						&:hover, &:focus, &.selected{
+							padding-bottom: 20px;								
+						}
+					}
+				}
+			}
+			
 		}
 	}
 
 	body {
 		font-family: 'Roboto';
 		font-weight: 400;
+		background: #eee;
 
 		&.codehard-index {
 			.container{
@@ -153,3 +218,5 @@
 			}
 		}
 	}
+
+	
