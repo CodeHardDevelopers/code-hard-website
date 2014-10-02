@@ -3,24 +3,10 @@ angular.module('codehardApp')
         function($location, IndexService) {
         	var self = this;        	
 
-        	self.navList = [{
-                title: "Apps",
-                hash: "apps"
-            }, {
-                title: "Blog",
-                hash: "blog"
-            }, {
-                title: "About",
-                hash: "about"
-            }, {
-                title: "Get in touch",
-                hash: "get-in-touch"
-            }];
+        	self.navList = IndexService.getNavList();
 
         	self.getSelected = function(nav){   
         		return "/"+(nav.hash) == $location.path();
         	};
-
-
         }
     ]);

@@ -1,10 +1,9 @@
 angular.module('codehardApp')
     .service('IndexService', [
 
-        function() {
+        function() {       	
 
-        	
-
+        	var self = this;
 
             var team = [{
                 name: "Kalyan Sriram",
@@ -45,6 +44,10 @@ angular.module('codehardApp')
                 title: "Get in touch",
                 hash: "get-in-touch"
             }];
+
+            self.getNavList = function(){
+            	return navList;
+            };
            
         }
     ]);
