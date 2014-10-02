@@ -1,8 +1,9 @@
 angular.module('codehardApp')
     .controller('NavController', ['$location', 'IndexService',
         function($location, IndexService) {
-        	var self = this;        	
+        	var self = this;    
 
+        	self.toggleMenu = false;
         	self.navList = IndexService.getNavList();
 
         	self.getSelected = function(nav){   

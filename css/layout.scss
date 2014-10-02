@@ -109,19 +109,23 @@
 		font-family: 'Roboto Condensed';
 	}
 
+	.inline-block{
+		display: inline-block;
+	}
+
 	.inline-block-child > * {
 		display: inline-block;			
 	}
 
-	.inline-block-child {
-		.align-top{
-			vertical-align: top;
-		}	
+	
+	.align-top{
+		vertical-align: top;
+	}	
 
-		.align-middle{
-			vertical-align: middle;
-		}
+	.align-middle{
+		vertical-align: middle;
 	}
+	
 
 	@mixin element($element){
 		@for $i from 0 through 17 {					
@@ -138,13 +142,16 @@
 	}	
 
 	header{
+
 		background-color: #fff;
 		top: 0;
 		left: 0;
 		width: 100%;
 		z-index: 100010;
+		position: relative;
 
 		@include transition(all 0.5s ease-in-out);
+
 
 		.logo{
 			background:transparent url('../images/logo.png') no-repeat center;
@@ -153,26 +160,61 @@
 			@include animation('logo-color 20s infinite ease-in-out alternate-reverse');
 		}
 
+		.menu-container{
+			display: inline-block;
+			margin-left: 30px;
+		}
+
 		nav {
 
-			position: relative;
+			input[type=checkbox] {
+				position: absolute;
+				top: -9999px;
+				left: -9999px;
+			}
 
-			li{
+			label { 
+				display:none;
+				cursor: pointer;
+				user-select:none;
+			}
+
+			ul{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			li{				
+
 				display: inline-block;	
+
+				padding: 5px;
+				margin: 10px;
+
 				& > a {
+
 					display: block;
 					color: #4C4A4A;
-					border-bottom: transparent 4px solid;
+
+					border: 0;
+					border-bottom:transparent 3px solid;
+					padding-bottom: 5px;
+					
 					@include transition(all 0.2s ease-in-out);
 
 					&:hover, &:focus, &.selected{
 						color: #0DBAC9;
 						text-decoration: none;
-						border-bottom-color: #474747;						
-						@include animation('nav-color 5s infinite ease-in-out alternate');
-						box-shadow: inset 0 0 0 2em rgba(200, 200, 200, .3);       
+						border-bottom-color: #4C4A4A;
+						padding-bottom: 24px;
+						@include animation('nav-color 5s infinite ease-in-out alternate');						  
 					}
 				}
+			}
+
+			.toggle-menu{							
+				overflow: hidden;
 			}
 		}		
 	}
@@ -189,19 +231,20 @@
 			}
 
 			nav {
-				margin-top: 50px;
+				
+				.toggle-menu{
+					height: auto !important;
+					margin: 47px 0 0 0;
+				}
 
 				li{				
 
-					& > a {
-
-						padding: 5px 5px 10px 5px;
-						margin: 5px 15px;
+					& > a {						
 
 						@include font-size(22px);
 
 						&:hover, &:focus, &.selected{						
-							padding-bottom: 25px;							
+							
 						}
 					}		
 				}
@@ -222,19 +265,22 @@
 			}
 
 			nav {
-				margin-top: 25px;
+				
+				.toggle-menu{
+					height: auto !important;
+					margin: 18px 0 0 0;
+				}
 
-				li{				
+				li{	
 
-					& > a {
 
-						padding: 5px 5px 5px 5px;
-						margin: 5px 10px;
+
+					& > a {	
 
 						@include font-size(21px);
 
 						&:hover, &:focus, &.selected{						
-							padding-bottom: 20px;							
+							
 						}
 					}		
 				}
@@ -252,20 +298,23 @@
 				height:60px;						
 			}
 
-			nav {
-				margin-top: 7px;
+			nav {			
 
-				li{				
+				.toggle-menu{
+					height: auto !important;
+				}
 
-					& > a {
+				li{		
 
-						padding: 5px 5px 5px 5px;
-						margin: 5px 10px;
+					& > a {						
 
 						@include font-size(20px);
 
+						
+
 						&:hover, &:focus, &.selected{						
-							padding-bottom: 20px;							
+
+							
 						}
 					}		
 				}
@@ -273,32 +322,67 @@
 		}
 	}	
 
-	@include screen-xs{
+	@include screen-xs {
+
 		header{		
-			height: 80px;
 			padding: 10px;		
 
 			.logo {
 				width:60px;
 				height:60px;						
-			}
+			}		
+
+			.menu-container{
+				display: block;
+				margin: 0;
+			}	
 
 			nav {
-				margin-top: 7px;
 
-				li{				
+				background: #fff;
 
-					& > a {
+				label{
+					display: block;
+				}
 
-						padding: 5px 5px 5px 5px;
-						margin: 5px 10px;
+				label:after {
+					position: absolute;
+					right: 25px;
+					top: 1;
+					content: "\2261";
+					font-size: 51px;
+					color: #4C4A4A;
+				}
 
-						@include font-size(20px);
+				input[type=checkbox]:checked ~ label:after {
+					@include animation('nav-color 5s infinite ease-in-out alternate');	
+				}			
 
-						&:hover, &:focus, &.selected{						
-							padding-bottom: 20px;							
-						}
-					}		
+				.toggle-menu{
+					height: 0;
+				}	
+
+				ul{					
+					padding: 10px 12px;
+					margin-top:10px;					
+
+					li{		
+						display: block;
+						margin: 12px 0;								
+
+						& > a {	
+
+								
+							border: 0;
+							border-left: transparent 3px solid;	
+							@include font-size(20px);
+
+							&:hover, &:focus, &.selected{						
+								border-left-color:#4C4A4A;
+								padding :0 0 0 15px;
+							}
+						}		
+					}
 				}
 			}
 		}
