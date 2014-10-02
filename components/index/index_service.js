@@ -45,9 +45,26 @@ angular.module('codehardApp')
                 hash: "get-in-touch"
             }];
 
+            var socialLink = [{
+                title: "Facebook",
+                url: "#",
+                icon: "images/facebook-53.png"
+            }, {
+                title: "Twitter",
+                url: "#",
+                icon: "images/twitter-53.png"
+            }, {
+                title: "Google Play",
+                url: "#",
+                icon: "images/play-53.png"
+            }]
+
             self.getNavList = function() {
                 return navList;
             };
 
+            self.getSocialList = function() {
+                return socialLink;
+            };
         }
     ]);
