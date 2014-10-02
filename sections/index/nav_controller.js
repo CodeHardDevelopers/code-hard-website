@@ -5,9 +5,10 @@ angular.module('codehardApp')
 
             self.toggleMenu = false;
             self.navList = IndexService.getNavList();
+            self.socialList = IndexService.getSocialList();
 
             self.getSelected = function(nav) {
-                return "/" + (nav.hash) == $location.path();
+                return ($location.path() == "" && nav.hash == self.navList[0].hash) || ("/" + (nav.hash) == $location.path());
             };
         }
     ]);

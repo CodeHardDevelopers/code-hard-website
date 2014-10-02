@@ -10,24 +10,33 @@
 <body ng-app="codehardApp" class="ng-cloak codehard-index">
 	<div ng-controller="IndexController as iCtrl">
 		<header id="header">
-			<div>
+			<div class="header-wrapper" ng-controller="NavController as nCtrl">
 				<div class="inline-block align-top">
 					<div class="logo"></div>
 				</div>
 				<div class="menu-container align-top">					
-					<nav class="nav" ng-controller="NavController as nCtrl">
+					<nav class="nav">
 						<input type="checkbox" ng-model="nCtrl.toggleMenu" id="button">
 						<label for="button" onclick></label>
 						<div class="toggle-menu" toggle-menu="nCtrl.toggleMenu">
 							<ul>
-								<li ng-repeat="nav in nCtrl.navList">
+								<li ng-repeat="nav in nCtrl.navList track by nav.hash">
 									<a ng-class="{selected: nCtrl.getSelected(nav)}" ng-href="#/{{nav.hash}}" ng-bind="nav.title"></a>
 								</li><!-- /ng-repeat NavController navList -->
 							</ul>
 						</div>
-					</nav><!-- /NavController -->
+					</nav>
 				</div>
-			</div>
+				<div class="social-link">
+					<ul>
+						<li ng-repeat="social in nCtrl.socialList">
+							<a ng-href="{{social.url}}" target="_blank">
+								<img ng-src="{{social.icon}}" alt="" />
+							</a>
+						</li>				   
+					</ul>
+				</div>
+			</div><!-- /NavController -->
 		</header><!-- /header -->
 		<div class="wrapper">
 			<div class="container">
