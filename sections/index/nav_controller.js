@@ -1,12 +1,13 @@
 angular.module('codehardApp')
     .controller('NavController', ['$location', 'IndexService',
         function($location, IndexService) {
-        	var self = this;        	
+            var self = this;
 
-        	self.navList = IndexService.getNavList();
+            self.toggleMenu = false;
+            self.navList = IndexService.getNavList();
 
-        	self.getSelected = function(nav){   
-        		return "/"+(nav.hash) == $location.path();
-        	};
+            self.getSelected = function(nav) {
+                return "/" + (nav.hash) == $location.path();
+            };
         }
     ]);

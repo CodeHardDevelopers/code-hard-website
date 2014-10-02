@@ -10,17 +10,21 @@
 <body ng-app="codehardApp" class="ng-cloak codehard-index">
 	<div ng-controller="IndexController as iCtrl">
 		<header id="header">
-			<div class="inline-block-child">
-				<div class="align-top">
+			<div>
+				<div class="inline-block align-top">
 					<div class="logo"></div>
 				</div>
-				<div class="align-top">
+				<div class="menu-container align-top">					
 					<nav class="nav" ng-controller="NavController as nCtrl">
-					    <ul>
-					        <li ng-repeat="nav in nCtrl.navList">
-					      		<a ng-class="{selected: nCtrl.getSelected(nav)}" ng-href="#/{{nav.hash}}" ng-bind="nav.title"></a>
-					        </li><!-- /ng-repeat NavController navList -->
-					    </ul>
+						<input type="checkbox" ng-model="nCtrl.toggleMenu" id="button">
+						<label for="button" onclick></label>
+						<div class="toggle-menu" toggle-menu="nCtrl.toggleMenu">
+							<ul>
+								<li ng-repeat="nav in nCtrl.navList">
+									<a ng-class="{selected: nCtrl.getSelected(nav)}" ng-href="#/{{nav.hash}}" ng-bind="nav.title"></a>
+								</li><!-- /ng-repeat NavController navList -->
+							</ul>
+						</div>
 					</nav><!-- /NavController -->
 				</div>
 			</div>
@@ -42,5 +46,6 @@
 	<script src="sections/index/index_controller.js"></script>
 	<script src="sections/index/nav_controller.js"></script>
 	<script src="components/index/index_service.js"></script>
+	<script src="components/index/index_directive.js"></script>
 </body><!-- /codehardApp body -->
 </html>
