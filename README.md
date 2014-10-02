@@ -1,4 +1,4 @@
-movie-addict-website
+code-hard-website
 ====================
 
-Official website of Movie Addict Application 
+Official website of CodeHard Developers
