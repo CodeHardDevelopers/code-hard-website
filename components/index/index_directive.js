@@ -4,13 +4,9 @@ angular.module('codehardApp')
             scope.$watch(attrs.toggleMenu, function(newVal) {
                 if ($(element).siblings('label').css("display") == "block") {
                     if (newVal) {
-                        $(element).animate({
-                            "height": $(element).children('ul').innerHeight() + "px"
-                        });
+                        $(element).animate({ "height": $(element).children('ul').innerHeight() + "px" });
                     } else {
-                        $(element).animate({
-                            "height": "0px"
-                        });
+                        $(element).animate({ "height": "0px" });
                     }
                 } else {
                     $(element).removeAttr('style');
