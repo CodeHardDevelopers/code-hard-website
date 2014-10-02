@@ -1,5 +1,4 @@
 	/*** sass functions includes extends ***/
-
 	@function calculateRem($size) {
 		$remSize: $size / 16px;
 		@return $remSize * 1rem;
@@ -78,13 +77,9 @@
 			clear: both;
 		}
 	}
-
 	/*** end ***/
-
 	/*** sass variables ***/
-
 	$color-collection: (#b9383c, #ae215f, #541c77, #462d91,#3c468e, #276990, #00838f, #247369, #3e9a3a, #92b440, #bbba24, #f8bc28,#ff8f00, #ef6c00, #d84315, #4e342e, #414040, #37474f);
-
 	/*** end ***/
 
 	html{
@@ -124,8 +119,7 @@
 
 	.align-middle{
 		vertical-align: middle;
-	}
-	
+	}	
 
 	@mixin element($element){
 		@for $i from 0 through 17 {					
@@ -142,16 +136,14 @@
 	}	
 
 	header{
-
 		background-color: #fff;
 		top: 0;
 		left: 0;
 		width: 100%;
 		z-index: 100010;
 		position: relative;
-
+		padding: 10px;	
 		@include transition(all 0.5s ease-in-out);
-
 
 		.logo{
 			background:transparent url('../images/logo.png') no-repeat center;
@@ -165,7 +157,7 @@
 			margin-left: 30px;
 		}
 
-		nav {
+		nav {		
 
 			input[type=checkbox] {
 				position: absolute;
@@ -183,42 +175,36 @@
 				list-style: none;
 				margin: 0;
 				padding: 0;
-			}
 
-			li{				
+				li {	
+					display: inline-block;
+					padding: 5px;
+					margin: 10px;
 
-				display: inline-block;	
+					& > a {
+						border: 0;
+						display: block;
+						color: #4C4A4A;					
+						border-bottom:transparent 3px solid;
+						padding-bottom: 5px;					
+						@include transition(all 0.2s ease-in-out);
 
-				padding: 5px;
-				margin: 10px;
-
-				& > a {
-
-					display: block;
-					color: #4C4A4A;
-
-					border: 0;
-					border-bottom:transparent 3px solid;
-					padding-bottom: 5px;
-					
-					@include transition(all 0.2s ease-in-out);
-
-					&:hover, &:focus, &.selected{
-						color: #0DBAC9;
-						text-decoration: none;
-						border-bottom-color: #4C4A4A;
-						padding-bottom: 24px;
-						@include animation('nav-color 5s infinite ease-in-out alternate');						  
+						&:hover, &:focus, &.selected{
+							color: #0DBAC9;
+							text-decoration: none;
+							border-bottom-color: #4C4A4A;
+							padding-bottom: 24px;
+							@include animation('nav-color 5s infinite ease-in-out alternate');						  
+						}
 					}
 				}
-			}
+			}			
 
 			.toggle-menu{							
 				overflow: hidden;
 			}
 		}		
 	}
-
 
 	@include screen-lg{
 		header{		
@@ -230,59 +216,36 @@
 				height:105px;						
 			}
 
-			nav {
-				
+			nav {				
 				.toggle-menu{
 					height: auto !important;
 					margin: 47px 0 0 0;
 				}
 
 				li{				
-
-					& > a {						
-
-						@include font-size(22px);
-
-						&:hover, &:focus, &.selected{						
-							
-						}
-					}		
+					@include font-size(22px);						
 				}
 			}
-
-
 		}
 	}	
 
 	@include screen-md{
 		header{		
-			height: 100px;
-			padding: 10px;		
+			height: 100px;				
 
 			.logo {
 				width:80px;
 				height:80px;						
 			}
 
-			nav {
-				
+			nav {				
 				.toggle-menu{
 					height: auto !important;
 					margin: 18px 0 0 0;
 				}
 
 				li{	
-
-
-
-					& > a {	
-
-						@include font-size(21px);
-
-						&:hover, &:focus, &.selected{						
-							
-						}
-					}		
+					@include font-size(21px);
 				}
 			}
 		}
@@ -290,42 +253,27 @@
 
 	@include screen-sm{
 		header{		
-			height: 80px;
-			padding: 10px;		
+			height: 80px;		
 
 			.logo {
 				width:60px;
 				height:60px;						
 			}
 
-			nav {			
-
+			nav {	
 				.toggle-menu{
 					height: auto !important;
 				}
 
 				li{		
-
-					& > a {						
-
-						@include font-size(20px);
-
-						
-
-						&:hover, &:focus, &.selected{						
-
-							
-						}
-					}		
+					@include font-size(20px);
 				}
 			}
 		}
 	}	
 
 	@include screen-xs {
-
-		header{		
-			padding: 10px;		
+		header{						
 
 			.logo {
 				width:60px;
@@ -337,21 +285,20 @@
 				margin: 0;
 			}	
 
-			nav {
-
-				background: #fff;
+			nav {		
+				background: #fff;	
 
 				label{
 					display: block;
-				}
 
-				label:after {
-					position: absolute;
-					right: 25px;
-					top: 1;
-					content: "\2261";
-					font-size: 51px;
-					color: #4C4A4A;
+					&:after {
+						position: absolute;
+						right: 25px;
+						top: 1;
+						content: "\2261";
+						font-size: 51px;
+						color: #4C4A4A;
+					}
 				}
 
 				input[type=checkbox]:checked ~ label:after {
@@ -368,15 +315,12 @@
 
 					li{		
 						display: block;
-						margin: 12px 0;								
+						margin: 12px 0;
+						@include font-size(20px);
 
 						& > a {	
-
-								
 							border: 0;
-							border-left: transparent 3px solid;	
-							@include font-size(20px);
-
+							border-left: transparent 3px solid;
 							&:hover, &:focus, &.selected{						
 								border-left-color:#4C4A4A;
 								padding :0 0 0 15px;
@@ -392,7 +336,6 @@
 		font-family: 'Roboto';
 		font-weight: 400;
 		background: #eee;
-
 
 		&.codehard-index {
 			.container{
