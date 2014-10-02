@@ -19,11 +19,11 @@
 						<input type="checkbox" ng-model="nCtrl.toggleMenu" id="button">
 						<label for="button" onclick></label>
 						<div class="toggle-menu" toggle-menu="nCtrl.toggleMenu">
-						<ul>
-							<li ng-repeat="nav in nCtrl.navList">
-								<a ng-class="{selected: nCtrl.getSelected(nav)}" ng-href="#/{{nav.hash}}" ng-bind="nav.title"></a>
-							</li><!-- /ng-repeat NavController navList -->
-						</ul>
+							<ul>
+								<li ng-repeat="nav in nCtrl.navList">
+									<a ng-class="{selected: nCtrl.getSelected(nav)}" ng-href="#/{{nav.hash}}" ng-bind="nav.title"></a>
+								</li><!-- /ng-repeat NavController navList -->
+							</ul>
 						</div>
 					</nav><!-- /NavController -->
 				</div>

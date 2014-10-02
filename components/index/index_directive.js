@@ -12,8 +12,8 @@ angular.module('codehardApp')
                             "height": "0px"
                         });
                     }
-                }else{
-                	$(element).removeAttr('style');
+                } else {
+                    $(element).removeAttr('style');
                 }
             });
         }
