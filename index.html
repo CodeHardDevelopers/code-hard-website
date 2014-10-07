@@ -9,7 +9,7 @@
 </head>
 <body ng-app="codehardApp" class="ng-cloak codehard-index">
 	<div ng-controller="IndexController as iCtrl" class="app-landing">
-		<header id="header" header-collapse="iCtrl">
+		<header id="header" header-collapse>
 			<div class="header-wrapper" ng-controller="NavController as nCtrl">
 				<div class="inline-block align-top">
 					<div class="logo"></div>
@@ -72,9 +72,7 @@
 			});
 		});
 
-		 $(window).scroll(function(){
-               console.log($(this).scrollTop());     
-         });
+		 
 	</script>
 
 </body><!-- /codehardApp body -->
