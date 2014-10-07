@@ -8,8 +8,8 @@
 	<link rel=stylesheet href="css/layout.css">
 </head>
 <body ng-app="codehardApp" class="ng-cloak codehard-index">
-	<div ng-controller="IndexController as iCtrl">
-		<header id="header">
+	<div ng-controller="IndexController as iCtrl" class="app-landing">
+		<header id="header" header-collapse="iCtrl">
 			<div class="header-wrapper" ng-controller="NavController as nCtrl">
 				<div class="inline-block align-top">
 					<div class="logo"></div>
@@ -20,7 +20,7 @@
 						<label for="button" onclick></label>
 						<div class="toggle-menu" toggle-menu="nCtrl.toggleMenu">
 							<ul>
-								<li ng-repeat="nav in nCtrl.navList track by nav.hash">
+								<li ng-repeat="nav in nCtrl.navList track by nav.hash">									
 									<a ng-class="{selected: nCtrl.getSelected(nav)}" ng-href="#/{{nav.hash}}" ng-bind="nav.title"></a>
 								</li><!-- /ng-repeat NavController navList -->
 							</ul>
@@ -40,7 +40,14 @@
 		</header><!-- /header -->
 		<div class="wrapper">
 			<div class="container">
-				<div></div>
+				<div>
+					<div ng-repeat="nav in iCtrl.navList track by nav.hash">
+						<div class="img-holder" data-image="images/backgrounds/1.jpg"></div>
+						<section>
+							<div style="height:100px" ng-bind="nav.title"></div>
+						</section>
+					</div>
+				</div>
 			</div>
 		</div><!-- /div wrapper -->
 		<footer>
@@ -50,11 +57,25 @@
 	<script src="js/jquery-1.7.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/angular.min.js"></script>
+	<script src="js/jquery.scroll.min.js"></script>
 
 	<script src="app.js"></script>
 	<script src="sections/index/index_controller.js"></script>
 	<script src="sections/index/nav_controller.js"></script>
 	<script src="components/index/index_service.js"></script>
 	<script src="components/index/index_directive.js"></script>
+
+	<script type="text/javascript">	
+		$(document).ready(function(){
+			$('.img-holder').imageScroll({
+				container:$(".container")
+			});
+		});
+
+		 $(window).scroll(function(){
+               console.log($(this).scrollTop());     
+         });
+	</script>
+
 </body><!-- /codehardApp body -->
 </html>
