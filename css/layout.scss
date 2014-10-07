@@ -297,6 +297,7 @@
 
 			.toggle-menu{							
 				overflow: hidden;
+
 			}
 		}	
 
@@ -355,7 +356,6 @@
 				padding-top:135px;
 			}
 		}
-
 	}	
 
 	@include screen-md {
@@ -414,8 +414,7 @@
 	}	
 
 	@include screen-xs {
-		header{
-			height: 80px;	
+		header{	
 
 			.logo {
 				width:60px;

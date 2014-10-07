@@ -21,13 +21,19 @@ angular.module('codehardApp')
             }
         }
     })
-    .directive("headerCollapse", function() {
-        return {
-             restrict: "A",
-             link: function(scope, element, attrs){
-                 $("body").scroll(function(){
-                    console.log($("body").scrollTop());
-                 })
-             }
+    .directive("headerCollapse", ['$window',
+        function($window) {
+            return {
+                restrict: "A",
+                link: function(scope, element, attrs) {
+                    $($window).scroll(function() {
+                        if (parseInt($(".wrapper .container").css("padding-top")) < $($window).scrollTop()) {
+                            $(element).addClass("header-collapse");
+                        }else{
+                            $(element).removeClass("header-collapse");
+                        }                       
+                    });
+                }
+            }
         }
-    });
+    ]);
