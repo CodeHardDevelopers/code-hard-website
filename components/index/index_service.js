@@ -32,6 +32,9 @@ angular.module('codehardApp')
             }];
 
             var navList = [{
+                title: "Hello!",
+                hash: "index"
+            }, {
                 title: "Apps",
                 hash: "apps"
             }, {

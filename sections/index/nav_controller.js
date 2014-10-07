@@ -8,7 +8,11 @@ angular.module('codehardApp')
             self.socialList = IndexService.getSocialList();
 
             self.getSelected = function(nav) {
-                return ($location.path() == "" && nav.hash == self.navList[0].hash) || ("/" + (nav.hash) == $location.path());
-            };
+                var a = ($location.path() == "" && nav.hash == self.navList[0].hash) || ("/" + (nav.hash) == $location.path());
+
+                
+                
+                return a;
+            };           
         }
     ]);
