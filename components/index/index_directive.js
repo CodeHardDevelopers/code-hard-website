@@ -29,11 +29,16 @@ angular.module('codehardApp')
                     $($window).scroll(function() {
                         if (parseInt($(".wrapper .container").css("padding-top")) < $($window).scrollTop()) {
                             $(element).addClass("header-collapse");
-                        }else{
+                        } else {
                             $(element).removeClass("header-collapse");
-                        }                       
+                        }
                     });
                 }
             }
+        }
+    ])
+    .directive("IndexLayout", [
+        function() {
+            return {};
         }
     ]);
