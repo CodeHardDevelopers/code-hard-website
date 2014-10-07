@@ -9,7 +9,7 @@
 </head>
 <body ng-app="codehardApp" class="ng-cloak codehard-index">
 	<div ng-controller="IndexController as iCtrl" class="app-landing">
-		<header id="header" header-collapse="iCtrl">
+		<header id="header" header-collapse>
 			<div class="header-wrapper" ng-controller="NavController as nCtrl">
 				<div class="inline-block align-top">
 					<div class="logo"></div>
@@ -41,14 +41,12 @@
 		<div class="wrapper">
 			<div class="container">
 				<div>
-					<!-- <div ng-repeat="nav in iCtrl.navList track by nav.hash">
+					<div ng-repeat="nav in iCtrl.navList track by nav.hash">
 						<div class="img-holder" data-image="images/backgrounds/1.jpg"></div>
 						<section>
 							<div style="height:100px" ng-bind="nav.title"></div>
 						</section>
-					</div> -->
-
-					<div><h1>Welcome!</h1></div>
+					</div>
 				</div>
 			</div>
 		</div><!-- /div wrapper -->
@@ -74,9 +72,7 @@
 			});
 		});
 
-		 $(window).scroll(function(){
-               console.log($(this).scrollTop());     
-         });
+		 
 	</script>
 
 </body><!-- /codehardApp body -->
