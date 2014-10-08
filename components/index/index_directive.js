@@ -63,6 +63,13 @@ angular.module('codehardApp')
                         $.each(spies, function(i,e){
                             var top = parseInt(parseInt($(".wrapper .container").css("padding-top")));
                             var start = $(e).offset().top - top;
+                            var end = start + $(e).height();                           
+
+                            if(a <= end && a >= start) {
+                            	scope.$apply(function(){
+                            		$location.path($(e).attr("id"));
+                            	});                           	
+                            }
                             
                         });
                     });
