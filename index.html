@@ -21,7 +21,7 @@
 						<div class="toggle-menu" toggle-menu="nCtrl.toggleMenu">
 							<ul>
 								<li ng-repeat="nav in nCtrl.navList track by nav.hash">									
-									<a ng-class="{selected: nCtrl.getSelected(nav)}" ng-href="#/{{nav.hash}}" ng-bind="nav.title"></a>
+									<a ng-class="{selected: nCtrl.getSelected(nav)}" ng-href="#{{nav.hash}}" ng-bind="nav.title" nav-scroll></a>
 								</li><!-- /ng-repeat NavController navList -->
 							</ul>
 						</div>
@@ -40,12 +40,27 @@
 		</header><!-- /header -->
 		<div class="wrapper">
 			<div class="container">
-				<div>
-					<div ng-repeat="nav in iCtrl.navList track by nav.hash">
-						<div class="img-holder" data-image="images/backgrounds/1.jpg"></div>
-						<section>
-							<div style="height:100px" ng-bind="nav.title"></div>
-						</section>
+			<div nav-spyable>
+					<div id="index" class="spyable">
+						<div class="holder-section">
+							<div class="holder-content">
+								<div class="content-section">Hello</div>
+							</div>
+						</div>
+					</div>
+					<div id="apps" class="spyable">					
+						<div class="holder-section">
+							<div class="holder-content">
+								<div class="content-section">Hello</div>
+							</div>
+						</div>			
+					</div>
+					<div id="blog" class="spyable">					
+						<div class="holder-section">
+							<div class="holder-content">
+								<div class="content-section">Hello</div>
+							</div>
+						</div>			
 					</div>
 				</div>
 			</div>
@@ -72,7 +87,7 @@
 			});
 		});
 
-		 
+
 	</script>
 
 </body><!-- /codehardApp body -->

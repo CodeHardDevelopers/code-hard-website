@@ -176,18 +176,18 @@
 	}
 
 	header{
-		background-color: #fff;
+		background-color: #fff;			
 		top: 0;
 		left: 0;
 		width: 100%;
 		z-index: 100010;
 		position: relative;
 		padding: 10px;	
-		@include transition(all 0.5s ease-in-out);
-		position: fixed;		
-
+		@include transition(all 0.1s linear);
+		position: fixed;
+		
 		.header-wrapper{
-			position: relative;
+			position: relative;			
 		}
 
 		.social-link{
@@ -516,10 +516,20 @@
 	}
 
 	.wrapper{
-		.container{			
+		.container{	
 			position: relative;
 			overflow: hidden;
 			overflow-y:auto;
+			padding-left: 0;
+			padding-right: 0;
+			
+			.holder-section {		
+
+				background: url("../images/backgrounds/bg-index.jpg") center no-repeat;
+				background-size: cover;
+				width: 100%;
+				height: 1045px;
+			}
 		}
 	}
 	

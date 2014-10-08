@@ -1,18 +1,21 @@
 angular.module('codehardApp')
-    .controller('NavController', ['$location', 'IndexService',
-        function($location, IndexService) {
+    .controller('NavController', ['$location', '$anchorScroll', 'IndexService',
+        function($location, $anchorScroll, IndexService) {
             var self = this;
 
             self.toggleMenu = false;
             self.navList = IndexService.getNavList();
             self.socialList = IndexService.getSocialList();
 
-            self.getSelected = function(nav) {
-                var a = ($location.path() == "" && nav.hash == self.navList[0].hash) || ("/" + (nav.hash) == $location.path());
+            var init = function() {
+                if ($location.path() == "")
+                    $location.path(self.navList[0].hash);
+            };
 
-                
-                
-                return a;
-            };           
+            self.getSelected = function(nav) {
+                return ("/" + (nav.hash) == $location.path());;
+            };
+
+            init();
         }
     ]);
