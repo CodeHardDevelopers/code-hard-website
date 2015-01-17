@@ -1,4 +1,31 @@
+	@import "compass/css3";
+	@import "compass/css3/transform";
+
 	/*** sass functions includes extends ***/
+	@mixin flexbox() {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+	}
+
+	@mixin flex($values) {
+		-webkit-box-flex: $values;
+		-moz-box-flex:  $values;
+		-webkit-flex:  $values;
+		-ms-flex:  $values;
+		flex:  $values;
+	}
+
+	@mixin order($val) {
+		-webkit-box-ordinal-group: $val;  
+		-moz-box-ordinal-group: $val;     
+		-ms-flex-order: $val;     
+		-webkit-order: $val;  
+		order: $val;
+	}
+
 	@function calculateRem($size) {
 		$remSize: $size / 16px;
 		@return $remSize * 1rem;
@@ -51,6 +78,15 @@
 		}
 	}
 
+	@mixin background-img($url){
+		background: transparent url(images/landing/#{$url}) center no-repeat;
+	}
+
+	@mixin calc($property, $expression) {   
+		#{$property}: -webkit-calc(#{$expression}); 
+		#{$property}: calc(#{$expression});   
+	} 
+
 	@mixin animation($str) {
 		-webkit-animation: #{$str};
 		-moz-animation: #{$str};
@@ -82,6 +118,8 @@
 	$color-collection: (#b9383c, #ae215f, #541c77, #462d91,#3c468e, #276990, #00838f, #247369, #3e9a3a, #92b440, #bbba24, #f8bc28,#ff8f00, #ef6c00, #d84315, #4e342e, #414040, #37474f);
 	/*** end ***/
 
+	$body-color:#FFF;   
+
 	::-moz-selection {
 		background-color: #FFA;
 		color: #000;
@@ -92,9 +130,9 @@
 		color: #000;
 	}
 
-	a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
-		cursor: pointer;
-		outline: 0;
+	a[href], input[type='submit'],input[type='button'], input[type='reset'], input[type='image'], label[for], select, button, .pointer {
+		@extend %pointer;
+		outline: none !important;
 	}
 
 	::-webkit-scrollbar {
@@ -103,59 +141,218 @@
 	}
 
 	::-webkit-scrollbar-track-piece {
-		background-color: #000;
-		border-left: 1px solid #333;
+		background-color:$body-color;   
 	}
 
 	::-webkit-scrollbar-thumb {
-		background-color: #555;
-		border: #333 thin solid;
-		box-shadow: inset 0 0 3px 1px #333;
+		background-color: shade($body-color, 30%);  
 	}
 
 	::-webkit-scrollbar-thumb:hover {
 		background-color: #666;
 		border: #444 thin solid;
-		box-shadow: inset 0 0 1px 1px #666;
 	}
 
-	html{
+
+	%align-top{
+		vertical-align: top;
+	}   
+
+	%align-middle{
+		vertical-align: middle;
+	}   
+
+	%text-overflow{
+		text-overflow: ellipsis;
+		overflow: hidden;
 		width: 100%;
+	}
+
+	%transition{
+		@include transition(all .2s ease-in-out);   
+	}
+
+	%block{
+		display: block;
+	}
+
+	%inline-block{
+		@include inline-block;
+	}
+
+	.inline-block{
+		@extend %inline-block;
+	}
+
+	.inline-block-child > * {
+		@extend %inline-block;       
+	}
+
+	%relative{
+		position: relative;
+	}
+
+	%absolute{
+		position: absolute;
+	}
+
+	%pointer{
+		cursor: pointer;
+	}
+
+	%user-select-none{
+		-webkit-user-select: none;  
+		-moz-user-select: none;     
+		-ms-user-select: none;  
+		-o-user-select: none;
+		user-select: none; 
+	}   
+
+	%user-select-text{
+		-webkit-user-select: text;  
+		-moz-user-select: text;     
+		-ms-user-select: text;  
+		-o-user-select: text;
+		user-select: text; 
+	}	
+
+	h1, h2, h3 {		
+		font-weight: 300;
+	}
+
+	h4, h5, h6 {
+		
+	}
+
+	%full-width{
+		width: 100%;
+	}
+
+	%full-height{
 		height: 100%;
+	}
+
+	%overflow-x-hidden{
+		overflow-x:hidden;
+	}
+
+	.full-height, .ui-mobile [data-role=page]{
+		@extend %full-height;
+	}
+
+	%overflow-hidden{
+		overflow:hidden;
+	}
+
+	%overflow-x-hidden{
+		overflow-x:hidden;
+	}
+
+	%overflow-y-hidden{
+		overflow-y:hidden;
+	}
+
+	%pre {
+		white-space: pre-wrap;
+		white-space: -moz-pre-wrap;
+		white-space: -pre-wrap;
+		white-space: -o-pre-wrap;
+		-ms-word-wrap: break-word;
+		word-wrap: break-word;
+	}
+
+	%text-right {
+		text-align: right;
+	}
+	%text-left {
+		text-align: left;
+	}
+	%text-center {
+		text-align: center;
+	}
+	%text-condensed {
+		font-family: 'Roboto Condensed';
+	}
+
+	$base-color:#1EB4AC;
+	$light-color:#71D7C9;
+
+	$profile-width: 250;    
+	$left-width: 108;
+	$header-height : 54;
+
+	@include keyframes(rotate) {
+		from { -webkit-transform: rotate(0deg); }
+		to {-webkit-transform: rotate(360deg);  }
+	}
+
+	@-webkit-keyframes fontfix {
+		from { opacity: 1; }
+		to   { opacity: 1; }
+	}
+	
+	html{
+		@extend %full-width;
+		@extend %full-height;  
 		overflow: auto;
 
 		&, body{
 			margin: 0;
 			padding: 0;
 			font-size: 100%;
+			background: $body-color;  
+			@extends %user-select-text; 
+			-webkit-font-smoothing: antialiased;    
+			-moz-osx-font-smoothing: grayscale;     
+			-webkit-animation-delay: 0.1s;
+			-webkit-animation-name: fontfix;
+			-webkit-animation-duration: 0.1s;
+			-webkit-animation-iteration-count: 1;
+			-webkit-animation-timing-function: linear;  
+			@extend %relative;
 		}
 	}
 
-	h1, h2, h3 {
-		font-family: 'Roboto';
-		font-weight: 300;
+	[contenteditable='true'] {
+		outline: none;
 	}
 
-	h4, h5, h6 {
-		font-family: 'Roboto Condensed';
+	.highlight{
+		color: #DB5B51;
 	}
 
-	.inline-block{
-		display: inline-block;
+	img {
+		-ms-interpolation-mode: bicubic;
 	}
 
-	.inline-block-child > * {
-		display: inline-block;			
+	a {
+		text-decoration: none !important;
 	}
 
-	
-	.align-top{
-		vertical-align: top;
-	}	
+	.ng-hide-add, .ng-hide-remove {   
+		display: block !important; 
+	}
 
-	.align-middle{
-		vertical-align: middle;
-	}	
+	ul.DTTT_dropdown.dropdown-menu li:hover a {
+		background-color: #1EB4AC;
+		color: #fff!important;
+	}
+
+	.css-fade {
+		transition: 0.5s ease-in-out all;
+		opacity: 1;
+	}
+	.css-fade.ng-hide {
+		opacity: 0;
+	}
+
+	.lower-case{
+		text-transform: lowercase;
+	}
+
+	input, select{
+		box-shadow: none;
+	}
 
 	@mixin element($element){
 		@for $i from 0 through 17 {					
@@ -171,355 +368,95 @@
 		@include element(color);
 	}	
 
-	.app-landing{
-		position: relative;
-	}
+	header {			
+		@extend %relative;
 
-	header{
-		background-color: #fff;
-		top: 0;
-		left: 0;
-		width: 100%;
-		z-index: 100010;
-		position: relative;
-		padding: 10px;	
-		@include transition(all 0.5s ease-in-out);
-		position: fixed;		
+		.nav { 			
+			box-shadow: none;	
+			line-height: 73px;
+			@extend %full-width;
 
-		.header-wrapper{
-			position: relative;
-		}
+			.brand-logo, ul {				
+				text-transform: uppercase;
+				@extend %absolute;
+			}
 
-		.social-link{
+			.brand-logo {
+				top:10px;
+				left: 70px;
+				background:#fff url('../images/logo.png') no-repeat left;				
+				z-index: 1;
+				width: 54px;
+				height: 65px;				
+				background-size: contain;
+				color: #383A48;			
+				@include font-size(37px);
+				@extend %text-condensed;
+				padding-left:60px;	
+			}
 
-			position: absolute;
-			bottom :-14px;
-			right: 0;
-
-			ul{
-				padding: 0;
+			ul {
+				top:0px;
+				right:70px;	
 				margin: 0;
-				list-style: none;
+				padding: 0;
 
-				li{
-					display: inline-block;
-					margin: 5px;
-					width:53px;
-					height: 53px;
-					border-radius: 100%;
-					@include transition(all 0.2s ease-in);				
+				li {
+					@extend %inline-block;
+					@extend %relative;
+
+					font-weight: 500;
+					&:not(:last-of-type):after {
+						@extend %absolute;
+						content: "";
+						width: 2px;
+						background: #383A48;
+						height: 14px;
+						top:50%;
+						margin-top:-5px;
+						margin-left:100%;
+					}				
 
 					a{
-						display: block;	
-						@include transition(all 0.2s ease-in-out);		
-
-						&:before{
-							position: absolute;
-							width: 44px;
-							height: 44px;
-							content: "";
-							background: #7DF7ED;
-							z-index: 1000;
-							border-radius: 100%;
-							opacity: 0;
-							margin-left: 5px;
-							margin-top: 4px;
-						}						
-					}
-
-					&:hover, &:focus{
-						box-shadow: 0 4px 18px -7px rgba(0,0,0,0.5);
-
-						a{
-							&:before{
-								opacity: 0.3;
-							}
-						}
-					}					
-				}
-			}
-		}
-
-		.logo{
-			background:transparent url('../images/logo.png') no-repeat center;
-			background-size:contain;
-			z-index: 1;			
-			@include animation('logo-color 20s infinite ease-in-out alternate-reverse');
-		}
-
-		.menu-container{
-			display: inline-block;
-			margin-left: 30px;
-		}
-
-		nav {		
-
-			input[type=checkbox] {
-				position: absolute;
-				top: -9999px;
-				left: -9999px;
-			}
-
-			label { 
-				display:none;
-				cursor: pointer;
-				user-select:none;
-			}
-
-			ul{
-				list-style: none;
-				margin: 0;
-				padding: 0;
-
-				li {	
-					display: inline-block;
-					padding: 5px;
-					margin: 10px;
-
-					& > a {
-						border: 0;
 						display: block;
-						color: #4C4A4A;					
-						border-bottom:transparent 3px solid;
-						padding-bottom: 5px;					
-						@include transition(all 0.2s ease-in-out);
-
-						&:hover, &:focus, &.selected{
-							color: #0DBAC9;
-							text-decoration: none;
-							border-bottom-color: #4C4A4A;
-							padding-bottom: 24px;
-							@include animation('nav-color 5s infinite ease-in-out alternate');						  
-						}
+						padding: 6px 20px 0 20px;
+						color: #383A48;			
 					}
 				}
-			}			
-
-			.toggle-menu{							
-				overflow: hidden;
-
 			}
-		}	
+		}
+	}
 
+	.warpper {
+		@extend %absolute;
+		@extend %full-width;
+		@extend %full-height;
+		padding-top:85px;
 
-		&.header-collapse{		
-			height: 80px;		
-			padding: 10px;
-
-			& .logo {
-				width:60px;
-				height:60px;						
-			}
-
-			& nav {	
-				.toggle-menu{
-					height: auto;
-					margin:0;
-				}
-
-				& li{		
-					@include font-size(20px);
-				}
-			}
-
-			& + .wrapper{
-				.container{			
-					padding-top:80px;
-				}
+		.warpper-container {
+			.brand-intro {
+				background: #127AC1;
+				height: 300px;
 			}
 		}
 	}
 
 	@include screen-lg {
-		header{		
-			height: 135px;
-			padding: 15px;		
-
-			.logo {
-				width:105px;
-				height:105px;						
-			}
-
-			nav {				
-				.toggle-menu{
-					height: auto !important;
-					margin: 47px 0 0 0;
-				}
-
-				li{				
-					@include font-size(22px);						
-				}
-			}
-		}
-		.wrapper{
-			.container{			
-				padding-top:135px;
-			}
-		}
+		
 	}	
 
 	@include screen-md {
-		header{		
-			height: 100px;				
-
-			.logo {
-				width:80px;
-				height:80px;						
-			}
-
-			nav {				
-				.toggle-menu{
-					height: auto !important;
-					margin: 18px 0 0 0;
-				}
-
-				li{	
-					@include font-size(21px);
-				}
-			}
-		}
-
-		.wrapper{
-			.container{			
-				padding-top:100px;
-			}
-		}
+		
 	}	
 
 	@include screen-sm {
-		header{		
-			height: 80px;		
-
-			.logo {
-				width:60px;
-				height:60px;						
-			}		
-
-			nav {	
-				.toggle-menu{
-					height: auto !important;
-				}
-
-				li{		
-					@include font-size(20px);
-				}
-			}
-		}
-
-		.wrapper{
-			.container{			
-				padding-top:80px;
-			}
-		}
+		
 	}	
 
 	@include screen-xs {
-		header{	
-
-			.logo {
-				width:60px;
-				height:60px;						
-			}		
-
-			.menu-container{
-				display: block;
-				margin: 0;
-			}	
-
-			.social-link{				
-				bottom :-39px;
-			}			
-
-			&.header-collapse{		
-				height: auto;		
-				padding: 10px;
-
-				& .logo {
-					width:60px;
-					height:60px;						
-				}
-
-				& nav {	
-					.toggle-menu {
-						height:0;						
-					}
-
-					& li{		
-						@include font-size(20px);
-					}
-				}
-			}
-
-			nav {		
-				background: #fff;	
-
-				label{
-					display: block;
-
-					&:after {
-						position: absolute;
-						right: 11px;
-						top: -18;
-						content: "\2261";
-						font-size: 51px;
-						color: #4C4A4A;
-					}
-				}
-
-				input[type=checkbox]:checked ~ label:after {
-					@include animation('nav-color 5s infinite ease-in-out alternate');	
-				}			
-
-				.toggle-menu{
-					height: 0;
-				}	
-
-				ul{					
-					padding: 10px 12px;
-					margin-top:10px;					
-
-					li{		
-						display: block;
-						margin: 12px 0;
-						@include font-size(20px);
-
-						& > a {	
-							border: 0;
-							border-left: transparent 3px solid;
-							&:hover, &:focus, &.selected{						
-								border-left-color:#4C4A4A;
-								padding :0 0 0 15px;
-							}
-						}		
-					}
-				}
-			}
-		}
-
-		.wrapper{
-			.container{			
-				padding-top:80px;
-			}
-		}
+		
 	}	
 
-	body {
-		font-family: 'Roboto';
-		font-weight: 400;
-		background: #fff;
+	
 
-		&.codehard-index {
-			.container{
-				width: 100%;
-			}
-		}
-	}
-
-	.wrapper{
-		.container{			
-			position: relative;
-			overflow: hidden;
-			overflow-y:auto;
-		}
-	}
 	

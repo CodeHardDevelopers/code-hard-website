@@ -1,79 +1,38 @@
 <html !>
 <head>
 	<meta charset="utf-8">
-	<title>CodeHard Developers</title>
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,300|Roboto+Condensed' rel='stylesheet' type='text/css'>
+	<title>Codehard Developers</title>	
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
-	<link rel=stylesheet href="css/bootstrap.min.css">
+	<link rel=stylesheet href="css/materialize.min.css">
 	<link rel=stylesheet href="css/layout.css">
 </head>
-<body ng-app="codehardApp" class="ng-cloak codehard-index">
-	<div ng-controller="IndexController as iCtrl" class="app-landing">
-		<header id="header" header-collapse>
-			<div class="header-wrapper" ng-controller="NavController as nCtrl">
-				<div class="inline-block align-top">
-					<div class="logo"></div>
-				</div>
-				<div class="menu-container align-top">					
-					<nav class="nav">
-						<input type="checkbox" ng-model="nCtrl.toggleMenu" id="button">
-						<label for="button" onclick></label>
-						<div class="toggle-menu" toggle-menu="nCtrl.toggleMenu">
-							<ul>
-								<li ng-repeat="nav in nCtrl.navList track by nav.hash">									
-									<a ng-class="{selected: nCtrl.getSelected(nav)}" ng-href="#/{{nav.hash}}" ng-bind="nav.title"></a>
-								</li><!-- /ng-repeat NavController navList -->
-							</ul>
-						</div>
-					</nav>
-				</div>
-				<div class="social-link">
-					<ul>
-						<li ng-repeat="social in nCtrl.socialList">
-							<a ng-href="{{social.url}}" target="_blank">
-								<img ng-src="{{social.icon}}" alt="" />
-							</a>
-						</li>				   
-					</ul>
-				</div>
-			</div><!-- /NavController -->
-		</header><!-- /header -->
-		<div class="wrapper">
-			<div class="container">
-				<div>
-					<div ng-repeat="nav in iCtrl.navList track by nav.hash">
-						<div class="img-holder" data-image="images/backgrounds/1.jpg"></div>
-						<section>
-							<div style="height:100px" ng-bind="nav.title"></div>
-						</section>
-					</div>
-				</div>
+<body ng-app="codehard" class="ng-cloak">
+	<header id="header" class="white">		
+		<div class="nav">
+			<a href="#" class="brand-logo">
+				Codehard
+			</a>
+			<ul class="right">
+				<li><a class="black-text" href="sass.html">HOME</a></li>
+				<li><a class="black-text" href="components.html">APPS</a></li>
+				<li><a class="black-text" href="javascript.html">ABOUT</a></li>
+			</ul>
+		</div>		
+	</header><!-- /header -->
+	<div class="warpper">
+		<div class="warpper-container">
+			<div class="brand-intro">
 			</div>
-		</div><!-- /div wrapper -->
-		<footer>
-			<div></div>
-		</footer><!-- /footer -->
-	</div><!-- /IndexController -->
-	<script src="js/jquery-1.7.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+		</div>
+	</div>
+	<script src="js/jquery-1.7.1.min.js"></script>	
 	<script src="js/angular.min.js"></script>
-	<script src="js/jquery.scroll.min.js"></script>
+	<script src="js/materialize.min.js"></script>
 
-	<script src="app.js"></script>
-	<script src="sections/index/index_controller.js"></script>
-	<script src="sections/index/nav_controller.js"></script>
-	<script src="components/index/index_service.js"></script>
-	<script src="components/index/index_directive.js"></script>
+	<script src="app.js"></script>	
 
 	<script type="text/javascript">	
-		$(document).ready(function(){
-			$('.img-holder').imageScroll({
-				container:$(".container")
-			});
-		});
 
-		 
 	</script>
-
 </body><!-- /codehardApp body -->
 </html>
