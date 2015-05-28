@@ -1,462 +1,630 @@
-	@import "compass/css3";
-	@import "compass/css3/transform";
-
-	/*** sass functions includes extends ***/
-	@mixin flexbox() {
-		display: -webkit-box;
-		display: -moz-box;
-		display: -ms-flexbox;
-		display: -webkit-flex;
-		display: flex;
-	}
-
-	@mixin flex($values) {
-		-webkit-box-flex: $values;
-		-moz-box-flex:  $values;
-		-webkit-flex:  $values;
-		-ms-flex:  $values;
-		flex:  $values;
-	}
-
-	@mixin order($val) {
-		-webkit-box-ordinal-group: $val;  
-		-moz-box-ordinal-group: $val;     
-		-ms-flex-order: $val;     
-		-webkit-order: $val;  
-		order: $val;
-	}
-
-	@function calculateRem($size) {
-		$remSize: $size / 16px;
-		@return $remSize * 1rem;
-	}
-
-	@mixin font-size($size) {
-		font-size: $size;
-		font-size: calculateRem($size);
-	}
-
-	@mixin screen-xs {
-		@media (max-width: 767px) {
-			@content;
-		}
-	}
-
-	@mixin screen-sm {
-		@media (min-width: 768px) and (max-width: 991px) {
-			@content;
-		}
-	}
-
-	@mixin screen-md {
-		@media (min-width: 992px) and (max-width: 1199px) {
-			@content;
-		}
-	}
-
-	@mixin screen-lg {
-		@media (min-width: 1200px) {
-			@content;
-		}
-	}
-
-	@mixin keyframes($animation-name) {
-		@-webkit-keyframes $animation-name {
-			@content;
-		}
-		@-moz-keyframes $animation-name {
-			@content;
-		}  
-		@-ms-keyframes $animation-name {
-			@content;
-		}
-		@-o-keyframes $animation-name {
-			@content;
-		}  
-		@keyframes $animation-name {
-			@content;
-		}
-	}
-
-	@mixin background-img($url){
-		background: transparent url(images/landing/#{$url}) center no-repeat;
-	}
-
-	@mixin calc($property, $expression) {   
-		#{$property}: -webkit-calc(#{$expression}); 
-		#{$property}: calc(#{$expression});   
-	} 
-
-	@mixin animation($str) {
-		-webkit-animation: #{$str};
-		-moz-animation: #{$str};
-		-ms-animation: #{$str};
-		-o-animation: #{$str};
-		animation: #{$str};      
-	}
-
-	@mixin transition($args...) {
-		-webkit-transition: $args;
-		-moz-transition: $args;
-		-ms-transition: $args;
-		-o-transition: $args;
-		transition: $args;
-	}
-
-	%clearfix {
-		*zoom: 1;
-		&:before, &:after {
-			content: " ";
-			display: table;
-		}
-		&:after {
-			clear: both;
-		}
-	}
-	/*** end ***/
-	/*** sass variables ***/
-	$color-collection: (#b9383c, #ae215f, #541c77, #462d91,#3c468e, #276990, #00838f, #247369, #3e9a3a, #92b440, #bbba24, #f8bc28,#ff8f00, #ef6c00, #d84315, #4e342e, #414040, #37474f);
-	/*** end ***/
-
-	$body-color:#FFF;   
-
-	::-moz-selection {
-		background-color: #FFA;
-		color: #000;
-	}
-
-	::selection {
-		background-color: #FFA;
-		color: #000;
-	}
-
-	a[href], input[type='submit'],input[type='button'], input[type='reset'], input[type='image'], label[for], select, button, .pointer {
-		@extend %pointer;
-		outline: none !important;
-	}
-
-	::-webkit-scrollbar {
-		width: 5px;
-		height: 6px;
-	}
-
-	::-webkit-scrollbar-track-piece {
-		background-color:$body-color;   
-	}
-
-	::-webkit-scrollbar-thumb {
-		background-color: shade($body-color, 30%);  
-	}
-
-	::-webkit-scrollbar-thumb:hover {
-		background-color: #666;
-		border: #444 thin solid;
-	}
-
-
-	%align-top{
-		vertical-align: top;
-	}   
-
-	%align-middle{
-		vertical-align: middle;
-	}   
-
-	%text-overflow{
-		text-overflow: ellipsis;
-		overflow: hidden;
-		width: 100%;
-	}
-
-	%transition{
-		@include transition(all .2s ease-in-out);   
-	}
-
-	%block{
-		display: block;
-	}
-
-	%inline-block{
-		@include inline-block;
-	}
-
-	.inline-block{
-		@extend %inline-block;
-	}
-
-	.inline-block-child > * {
-		@extend %inline-block;       
-	}
-
-	%relative{
-		position: relative;
-	}
-
-	%absolute{
-		position: absolute;
-	}
-
-	%pointer{
-		cursor: pointer;
-	}
-
-	%user-select-none{
-		-webkit-user-select: none;  
-		-moz-user-select: none;     
-		-ms-user-select: none;  
-		-o-user-select: none;
-		user-select: none; 
-	}   
-
-	%user-select-text{
-		-webkit-user-select: text;  
-		-moz-user-select: text;     
-		-ms-user-select: text;  
-		-o-user-select: text;
-		user-select: text; 
-	}	
-
-	h1, h2, h3 {		
-		font-weight: 300;
-	}
-
-	h4, h5, h6 {
-		
-	}
-
-	%full-width{
-		width: 100%;
-	}
-
-	%full-height{
-		height: 100%;
-	}
-
-	%overflow-x-hidden{
-		overflow-x:hidden;
-	}
-
-	.full-height, .ui-mobile [data-role=page]{
-		@extend %full-height;
-	}
-
-	%overflow-hidden{
-		overflow:hidden;
-	}
-
-	%overflow-x-hidden{
-		overflow-x:hidden;
-	}
-
-	%overflow-y-hidden{
-		overflow-y:hidden;
-	}
-
-	%pre {
-		white-space: pre-wrap;
-		white-space: -moz-pre-wrap;
-		white-space: -pre-wrap;
-		white-space: -o-pre-wrap;
-		-ms-word-wrap: break-word;
-		word-wrap: break-word;
-	}
-
-	%text-right {
-		text-align: right;
-	}
-	%text-left {
-		text-align: left;
-	}
-	%text-center {
-		text-align: center;
-	}
-	%text-condensed {
-		font-family: 'Roboto Condensed';
-	}
-
-	$base-color:#1EB4AC;
-	$light-color:#71D7C9;
-
-	$profile-width: 250;    
-	$left-width: 108;
-	$header-height : 54;
-
-	@include keyframes(rotate) {
-		from { -webkit-transform: rotate(0deg); }
-		to {-webkit-transform: rotate(360deg);  }
-	}
-
-	@-webkit-keyframes fontfix {
-		from { opacity: 1; }
-		to   { opacity: 1; }
-	}
-	
-	html{
-		@extend %full-width;
-		@extend %full-height;  
-		overflow: auto;
-
-		&, body{
-			margin: 0;
-			padding: 0;
-			font-size: 100%;
-			background: $body-color;  
-			@extends %user-select-text; 
-			-webkit-font-smoothing: antialiased;    
-			-moz-osx-font-smoothing: grayscale;     
-			-webkit-animation-delay: 0.1s;
-			-webkit-animation-name: fontfix;
-			-webkit-animation-duration: 0.1s;
-			-webkit-animation-iteration-count: 1;
-			-webkit-animation-timing-function: linear;  
-			@extend %relative;
-		}
-	}
-
-	[contenteditable='true'] {
-		outline: none;
-	}
-
-	.highlight{
-		color: #DB5B51;
-	}
-
-	img {
-		-ms-interpolation-mode: bicubic;
-	}
-
-	a {
-		text-decoration: none !important;
-	}
-
-	.ng-hide-add, .ng-hide-remove {   
-		display: block !important; 
-	}
-
-	ul.DTTT_dropdown.dropdown-menu li:hover a {
-		background-color: #1EB4AC;
-		color: #fff!important;
-	}
-
-	.css-fade {
-		transition: 0.5s ease-in-out all;
-		opacity: 1;
-	}
-	.css-fade.ng-hide {
-		opacity: 0;
-	}
-
-	.lower-case{
-		text-transform: lowercase;
-	}
-
-	input, select{
-		box-shadow: none;
-	}
-
-	@mixin element($element){
-		@for $i from 0 through 17 {					
-			#{0% + ($i * 5.88235294118)} { #{$element} :  nth($color-collection, $i + 1); }
-		}
-	}
-
-	@include keyframes(logo-color) {
-		@include element(background-color);
-	}
-
-	@include keyframes(nav-color) {
-		@include element(color);
-	}	
-
-	header {			
-		@extend %relative;
-
-		.nav { 			
-			box-shadow: none;	
-			line-height: 73px;
-			@extend %full-width;
-
-			.brand-logo, ul {				
-				text-transform: uppercase;
-				@extend %absolute;
-			}
-
-			.brand-logo {
-				top:10px;
-				left: 70px;
-				background:#fff url('../images/logo.png') no-repeat left;				
-				z-index: 1;
-				width: 54px;
-				height: 65px;				
-				background-size: contain;
-				color: #383A48;			
-				@include font-size(37px);
-				@extend %text-condensed;
-				padding-left:60px;	
-			}
-
-			ul {
-				top:0px;
-				right:70px;	
-				margin: 0;
-				padding: 0;
-
-				li {
-					@extend %inline-block;
-					@extend %relative;
-
-					font-weight: 500;
-					&:not(:last-of-type):after {
-						@extend %absolute;
-						content: "";
-						width: 2px;
-						background: #383A48;
-						height: 14px;
-						top:50%;
-						margin-top:-5px;
-						margin-left:100%;
-					}				
-
-					a{
-						display: block;
-						padding: 6px 20px 0 20px;
-						color: #383A48;			
-					}
-				}
-			}
-		}
-	}
-
-	.warpper {
-		@extend %absolute;
-		@extend %full-width;
-		@extend %full-height;
-		padding-top:85px;
-
-		.warpper-container {
-			.brand-intro {
-				background: #127AC1;
-				height: 300px;
-			}
-		}
-	}
-
-	@include screen-lg {
-		
-	}	
-
-	@include screen-md {
-		
-	}	
-
-	@include screen-sm {
-		
-	}	
-
-	@include screen-xs {
-		
-	}	
-
-	
-
-	
+@import "compass/css3";
+@import "compass/css3/transform";
+
+/*** sass functions includes extends ***/
+@mixin flexbox {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin flex($values) {
+    -webkit-box-flex: $values;
+    -moz-box-flex: $values;
+    -webkit-flex: $values;
+    -ms-flex: $values;
+    flex: $values;
+}
+
+@mixin order($val) {
+    -webkit-box-ordinal-group: $val;
+    -moz-box-ordinal-group: $val;
+    -ms-flex-order: $val;
+    -webkit-order: $val;
+    order: $val;
+}
+
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+@mixin screen-xs {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin screen-sm {
+    @media (min-width: 768px) and (max-width: 991px) {
+        @content;
+    }
+}
+
+@mixin screen-md {
+    @media (min-width: 992px) and (max-width: 1199px) {
+        @content;
+    }
+}
+
+@mixin screen-lg {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes $animation-name {
+        @content;
+    }
+
+    @-moz-keyframes $animation-name {
+        @content;
+    }
+
+    @-ms-keyframes $animation-name {
+        @content;
+    }
+
+    @-o-keyframes $animation-name {
+        @content;
+    }
+
+    @keyframes $animation-name {
+        @content;
+    }
+}
+
+@mixin background-img($url) {
+    background: transparent url(images/landing/#{$url}) center no-repeat;
+}
+
+@mixin calc($property, $expression) {
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
+
+@mixin animation($str) {
+    -webkit-animation: #{$str};
+    -moz-animation: #{$str};
+    -ms-animation: #{$str};
+    -o-animation: #{$str};
+    animation: #{$str};
+}
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+%clearfix {
+    *zoom: 1;
+    &:before, &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+/*** end ***/
+/*** sass variables ***/
+$color-collection: #b9383c, #ae215f, #541c77, #462d91, #3c468e, #276990, #00838f, #247369, #3e9a3a, #92b440, #bbba24, #f8bc28, #ff8f00, #ef6c00, #d84315, #4e342e, #414040, #37474f;
+
+/*** end ***/
+
+$body-color: #FFF;
+
+::-moz-selection {
+    background-color: #FFA;
+    color: #000;
+}
+
+::selection {
+    background-color: #FFA;
+    color: #000;
+}
+
+a[href], input[type='submit'], input[type='button'], input[type='reset'], input[type='image'], label[for], select, button, .pointer {
+    @extend %pointer;
+    outline: none !important;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: $body-color;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: shade($body-color, 30%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #666;
+    border: #444 thin solid;
+}
+
+%align-top {
+    vertical-align: top;
+}
+
+%align-middle {
+    vertical-align: middle;
+}
+
+%text-overflow {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}
+
+%transition {
+    @include transition(all 0.2s ease-in-out);
+}
+
+%block {
+    display: block;
+}
+
+%inline-block {
+    @include inline-block;
+}
+
+.inline-block {
+    @extend %inline-block;
+}
+
+.inline-block-child > * {
+    @extend %inline-block;
+}
+
+%relative {
+    position: relative;
+}
+
+%absolute {
+    position: absolute;
+}
+
+%pointer {
+    cursor: pointer;
+}
+
+%user-select-none {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+%user-select-text {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    -o-user-select: text;
+    user-select: text;
+}
+
+h1, h2, h3 {
+    font-weight: 300;
+}
+
+h4, h5, h6 {}
+
+%full-width {
+    width: 100%;
+}
+
+%full-height {
+    height: 100%;
+}
+
+%overflow-x-hidden {
+    overflow-x: hidden;
+}
+
+.full-height, .ui-mobile [data-role=page] {
+    @extend %full-height;
+}
+
+%overflow-hidden {
+    overflow: hidden;
+}
+
+%overflow-x-hidden {
+    overflow-x: hidden;
+}
+
+%overflow-y-hidden {
+    overflow-y: hidden;
+}
+
+%pre {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+%text-right {
+    text-align: right;
+}
+
+%text-left {
+    text-align: left;
+}
+
+%text-center {
+    text-align: center;
+}
+
+%text-condensed {
+    font-family: 'Roboto Condensed';
+}
+
+@font-face {
+    font-family: "Roboto Condensed";
+    src: url("../font/roboto/RobotoCondensed-Regular.ttf");
+    font-weight: 400;
+}
+
+
+@font-face {
+    font-family: "Roboto Condensed";
+    src: url("../font/roboto/RobotoCondensed-Light.ttf");
+    font-weight: 100;
+}
+
+
+@font-face {
+    font-family: "Roboto Slab";
+    src: url("../font/roboto/RobotoSlab-Regular.ttf");
+    font-weight: 400;
+}
+
+
+@font-face {
+    font-family: "Roboto Slab";
+    src: url("../font/roboto/RobotoSlab-Light.ttf");
+    font-weight: 100;
+}
+
+
+$base-color: #1EB4AC;
+$light-color: #71D7C9;
+
+$profile-width: 250;
+$left-width: 108;
+$header-height: 54;
+
+@include keyframes(rotate) {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+
+@-webkit-keyframes fontfix {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+html {
+    @extend %full-width;
+    @extend %full-height;
+    overflow: auto;
+    &, body {
+        margin: 0;
+        padding: 0;
+        font-size: 100%;
+        background: $body-color;
+        @extend %user-select-text;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-animation-delay: 0.1s;
+        -webkit-animation-name: fontfix;
+        -webkit-animation-duration: 0.1s;
+        -webkit-animation-iteration-count: 1;
+        -webkit-animation-timing-function: linear;
+        @extend %relative;
+    }
+}
+
+[contenteditable='true'] {
+    outline: none;
+}
+
+.highlight {
+    color: #DB5B51;
+}
+
+img {
+    -ms-interpolation-mode: bicubic;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.ng-hide-add, .ng-hide-remove {
+    display: block !important;
+}
+
+ul.DTTT_dropdown.dropdown-menu li:hover a {
+    background-color: #1EB4AC;
+    color: #fff !important;
+}
+
+.css-fade {
+    transition: 0.5s ease-in-out all;
+    opacity: 1;
+}
+
+.css-fade.ng-hide {
+    opacity: 0;
+}
+
+.lower-case {
+    text-transform: lowercase;
+}
+
+input, select {
+    box-shadow: none;
+}
+
+@mixin element($element) {
+    @for $i from 0 through 17 {
+        #{0% + $i * 5.88235} {
+            #{$element}: nth($color-collection, $i + 1);
+        }
+    }
+}
+
+@include keyframes(logo-color) {
+    @include element(background-color);
+}
+
+
+@include keyframes(nav-color) {
+    @include element(color);
+}
+
+
+header {
+    @extend %relative;
+    .nav {
+        box-shadow: none;
+        line-height: 85px;
+        padding: 0 70px;
+        @extend %full-width;
+        @extend %transition;
+        .brand-logo, ul {
+            text-transform: uppercase;
+            @extend %absolute;
+            z-index: 10;
+            @extend %transition;
+        }
+        .brand-logo {
+            top: 10px;
+            left: 70px;
+            background: #fff url("../images/logo.png") no-repeat left;
+            z-index: 1;
+            width: 54px;
+            height: 73px;
+            background-size: contain;
+            color: #383A48;
+            @include font-size(37px);
+            @extend %text-condensed;
+            padding-left: 60px;
+            @extend %transition;
+        }
+        ul {
+            top: 1px;
+            right: 70px;
+            margin: 0;
+            padding: 0;
+            margin-right: 175px;
+            @extend %transition;
+            li.nav-link {
+                @extend %inline-block;
+                @extend %relative;
+                font-weight: 500;
+                &:not(:last-of-type):after {
+                    @extend %absolute;
+                    content: "";
+                    width: 2px;
+                    background: #CFCFCF;
+                    height: 14px;
+                    top: 50%;
+                    margin-top: -5px;
+                    margin-left: 100%;
+                }
+                a {
+                    display: block;
+                    padding: 6px 20px 0 20px;
+                    color: #383A48;
+                    @extend %transition;
+                    &:hover {
+                        color: #1D8BD9 !important;
+                    }
+                }
+            }
+        }
+        .contact-section {
+            z-index: 11;
+            @extend %relative;
+            padding: 25px;
+            .contact-link {
+                height: 48px;
+                background-color: #1D8BD9;
+            }
+        }
+    }
+}
+
+.warpper {
+    @extend %absolute;
+    @extend %full-width;
+    @extend %full-height;
+    padding-top: 100px;
+    .warpper-container {
+        .brand-intro {
+            @extend %relative;
+            @extend %transition;
+            background: #127AC1;
+            height: 420px;
+            .steve-rep {
+                @extend %absolute;
+                background: url(../images/steve-rep.jpg) right top no-repeat;
+                background-size: contain;
+                width: 400px;
+                height: 100%;
+                right: 0;
+                top: 0;
+                @extend %transition;
+            }
+            .steve-quote {
+                padding: 80px;
+                line-height: 55px;
+                padding-right: 300px;
+                font-weight: 100;
+                color: #fff;
+                font-size: 30px;
+                font-family: "Roboto Slab";
+                @extend %relative;
+                @extend %transition;
+                span {
+                    font-weight: 400;
+                    text-shadow: 2px 2px 2px #296994;
+                }
+                .em-highlight {
+                    background: #fff;
+                    padding: 0px 10px 2px 10px;
+                    color: #127AC1;
+                    text-shadow: none;
+                    @extend %transition;
+                }
+                .em {
+                    font-size: 40px;
+                    @extend %transition;
+                }
+                .fa-heart {
+                    font-size: 40px;
+                    @extend %transition;
+                }
+                .fa-quote-left {
+                    @extend %absolute;
+                    @extend %transition;
+                    font-size: 51px;
+                    top: 70px;
+                    left: 55px;
+                    opacity: 0.2;
+                }
+            }
+        }
+        .content-container {
+            padding: 0 300px 0 70px;
+            @extend %relative;
+            @extend %transition;
+            margin-top: -100px;
+            .floating-panel {
+                @extend %absolute;
+                @extend %transition;
+                right: 120px;
+                top: 73px;
+            }
+            .content-base {
+                background: #fff;
+                border-radius: 2px;
+                padding: 20px;
+                min-height: 300px;
+                box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+            }
+        }
+        .content-footer {
+            margin-top: 40px;
+            background-color: #157ABF;
+            padding: 30px 70px;
+            height: 219px;
+        }
+    }
+}
+
+@include screen-lg {}
+
+
+@include screen-md {
+    header {
+        .nav {
+            ul {
+                right: 0;
+            }
+            padding: 0;
+            .brand-logo {
+                left: 20px;
+            }
+        }
+    }
+    .warpper {
+        .warpper-container {
+            .brand-intro {
+                height: 315px;
+                .steve-quote {
+                    padding: 40px 30px;
+                    line-height: 40px;
+                    padding-right: 222px;
+                    @include font-size(25px);
+                    .fa-quote-left {
+                        top: 32px;
+                        left: 16px;
+                        @include font-size(35px);
+                    }
+                    .em, .fa-heart {
+                        @include font-size(32px);
+                    }
+                }
+                .steve-rep {
+                    width: 222px;
+                }
+            }
+            .content-container {
+                padding: 0 200px 0 30px;
+                .floating-panel {
+                    right: 72px;
+                }
+            }
+        }
+    }
+}
+
+
+@include screen-sm {}
+
+
+@include screen-xs {}

@@ -2,47 +2,56 @@
 /*** end ***/
 /*** sass variables ***/
 /*** end ***/
-/* line 123, layout.scss */
+/* line 129, layout.scss */
 ::-moz-selection {
   background-color: #FFA;
   color: #000;
 }
 
-/* line 128, layout.scss */
+/* line 134, layout.scss */
 ::selection {
   background-color: #FFA;
   color: #000;
 }
 
-/* line 133, layout.scss */
+/* line 139, layout.scss */
 a[href], input[type='submit'], input[type='button'], input[type='reset'], input[type='image'], label[for], select, button, .pointer {
   outline: none !important;
 }
 
-/* line 138, layout.scss */
+/* line 144, layout.scss */
 ::-webkit-scrollbar {
   width: 5px;
   height: 6px;
 }
 
-/* line 143, layout.scss */
+/* line 149, layout.scss */
 ::-webkit-scrollbar-track-piece {
   background-color: white;
 }
 
-/* line 147, layout.scss */
+/* line 153, layout.scss */
 ::-webkit-scrollbar-thumb {
   background-color: #b2b2b2;
 }
 
-/* line 151, layout.scss */
+/* line 157, layout.scss */
 ::-webkit-scrollbar-thumb:hover {
   background-color: #666;
   border: #444 thin solid;
 }
 
-/* line 179, layout.scss */
-.inline-block, .inline-block-child > *, header .nav ul li {
+/* line 176, layout.scss */
+header .nav, header .nav .brand-logo, header .nav ul, header .nav ul li.nav-link a, .warpper .warpper-container .brand-intro, .warpper .warpper-container .brand-intro .steve-rep, .warpper .warpper-container .brand-intro .steve-quote, .warpper .warpper-container .brand-intro .steve-quote .em-highlight, .warpper .warpper-container .brand-intro .steve-quote .em, .warpper .warpper-container .brand-intro .steve-quote .fa-heart, .warpper .warpper-container .brand-intro .steve-quote .fa-quote-left, .warpper .warpper-container .content-container, .warpper .warpper-container .content-container .floating-panel {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+/* line 184, layout.scss */
+.inline-block, .inline-block-child > *, header .nav ul li.nav-link {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
@@ -51,124 +60,156 @@ a[href], input[type='submit'], input[type='button'], input[type='reset'], input[
   *display: inline;
 }
 
-/* line 191, layout.scss */
-html, html body, header, header .nav ul li {
+/* line 196, layout.scss */
+html, html body, header, header .nav ul li.nav-link, header .nav .contact-section, .warpper .warpper-container .brand-intro, .warpper .warpper-container .brand-intro .steve-quote, .warpper .warpper-container .content-container {
   position: relative;
 }
 
-/* line 195, layout.scss */
-header .nav .brand-logo, header .nav ul, header .nav ul li:not(:last-of-type):after, .warpper {
+/* line 200, layout.scss */
+header .nav .brand-logo, header .nav ul, header .nav ul li.nav-link:not(:last-of-type):after, .warpper, .warpper .warpper-container .brand-intro .steve-rep, .warpper .warpper-container .brand-intro .steve-quote .fa-quote-left, .warpper .warpper-container .content-container .floating-panel {
   position: absolute;
 }
 
-/* line 199, layout.scss */
+/* line 204, layout.scss */
 a[href], input[type='submit'], input[type='button'], input[type='reset'], input[type='image'], label[for], select, button, .pointer {
   cursor: pointer;
 }
 
-/* line 219, layout.scss */
+/* line 216, layout.scss */
+html, html body {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  -o-user-select: text;
+  user-select: text;
+}
+
+/* line 224, layout.scss */
 h1, h2, h3 {
   font-weight: 300;
 }
 
-/* line 227, layout.scss */
+/* line 230, layout.scss */
 html, header .nav, .warpper {
   width: 100%;
 }
 
-/* line 231, layout.scss */
+/* line 234, layout.scss */
 .full-height, .ui-mobile [data-role=page], html, .warpper {
   height: 100%;
 }
 
-/* line 273, layout.scss */
+/* line 279, layout.scss */
 header .nav .brand-logo {
   font-family: 'Roboto Condensed';
 }
 
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url("../font/roboto/RobotoCondensed-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url("../font/roboto/RobotoCondensed-Light.ttf");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("../font/roboto/RobotoSlab-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("../font/roboto/RobotoSlab-Light.ttf");
+  font-weight: 100;
+}
+
 @-webkit-keyframes rotate {
-  /* line 285, layout.scss */
+  /* line 319, layout.scss */
   from {
     -webkit-transform: rotate(0deg);
   }
 
-  /* line 286, layout.scss */
+  /* line 322, layout.scss */
   to {
     -webkit-transform: rotate(360deg);
   }
 }
 
 @-moz-keyframes rotate {
-  /* line 285, layout.scss */
+  /* line 319, layout.scss */
   from {
     -webkit-transform: rotate(0deg);
   }
 
-  /* line 286, layout.scss */
+  /* line 322, layout.scss */
   to {
     -webkit-transform: rotate(360deg);
   }
 }
 
 @-ms-keyframes rotate {
-  /* line 285, layout.scss */
+  /* line 319, layout.scss */
   from {
     -webkit-transform: rotate(0deg);
   }
 
-  /* line 286, layout.scss */
+  /* line 322, layout.scss */
   to {
     -webkit-transform: rotate(360deg);
   }
 }
 
 @-o-keyframes rotate {
-  /* line 285, layout.scss */
+  /* line 319, layout.scss */
   from {
     -webkit-transform: rotate(0deg);
   }
 
-  /* line 286, layout.scss */
+  /* line 322, layout.scss */
   to {
     -webkit-transform: rotate(360deg);
   }
 }
 
 @keyframes rotate {
-  /* line 285, layout.scss */
+  /* line 319, layout.scss */
   from {
     -webkit-transform: rotate(0deg);
   }
 
-  /* line 286, layout.scss */
+  /* line 322, layout.scss */
   to {
     -webkit-transform: rotate(360deg);
   }
 }
 
 @-webkit-keyframes fontfix {
-  /* line 290, layout.scss */
+  /* line 329, layout.scss */
   from {
     opacity: 1;
   }
 
-  /* line 291, layout.scss */
+  /* line 332, layout.scss */
   to {
     opacity: 1;
   }
 }
 
-/* line 294, layout.scss */
+/* line 338, layout.scss */
 html {
   overflow: auto;
 }
-/* line 299, layout.scss */
+/* line 342, layout.scss */
 html, html body {
   margin: 0;
   padding: 0;
   font-size: 100%;
   background: white;
-  @extends %user-select-text;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-animation-delay: 0.1s;
@@ -178,1035 +219,1175 @@ html, html body {
   -webkit-animation-timing-function: linear;
 }
 
-/* line 316, layout.scss */
+/* line 359, layout.scss */
 [contenteditable='true'] {
   outline: none;
 }
 
-/* line 320, layout.scss */
+/* line 363, layout.scss */
 .highlight {
   color: #DB5B51;
 }
 
-/* line 324, layout.scss */
+/* line 367, layout.scss */
 img {
   -ms-interpolation-mode: bicubic;
 }
 
-/* line 328, layout.scss */
+/* line 371, layout.scss */
 a {
   text-decoration: none !important;
 }
 
-/* line 332, layout.scss */
+/* line 375, layout.scss */
 .ng-hide-add, .ng-hide-remove {
   display: block !important;
 }
 
-/* line 336, layout.scss */
+/* line 379, layout.scss */
 ul.DTTT_dropdown.dropdown-menu li:hover a {
   background-color: #1EB4AC;
-  color: #fff!important;
+  color: #fff !important;
 }
 
-/* line 341, layout.scss */
+/* line 384, layout.scss */
 .css-fade {
   transition: 0.5s ease-in-out all;
   opacity: 1;
 }
 
-/* line 345, layout.scss */
+/* line 389, layout.scss */
 .css-fade.ng-hide {
   opacity: 0;
 }
 
-/* line 349, layout.scss */
+/* line 393, layout.scss */
 .lower-case {
   text-transform: lowercase;
 }
 
-/* line 353, layout.scss */
+/* line 397, layout.scss */
 input, select {
   box-shadow: none;
 }
 
 @-webkit-keyframes logo-color {
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   0% {
     background-color: #b9383c;
   }
 
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   5.88235% {
     background-color: #ae215f;
   }
 
-  /* line 359, layout.scss */
-  11.76471% {
+  /* line 403, layout.scss */
+  11.7647% {
     background-color: #541c77;
   }
 
-  /* line 359, layout.scss */
-  17.64706% {
+  /* line 403, layout.scss */
+  17.64705% {
     background-color: #462d91;
   }
 
-  /* line 359, layout.scss */
-  23.52941% {
+  /* line 403, layout.scss */
+  23.5294% {
     background-color: #3c468e;
   }
 
-  /* line 359, layout.scss */
-  29.41176% {
+  /* line 403, layout.scss */
+  29.41175% {
     background-color: #276990;
   }
 
-  /* line 359, layout.scss */
-  35.29412% {
+  /* line 403, layout.scss */
+  35.2941% {
     background-color: #00838f;
   }
 
-  /* line 359, layout.scss */
-  41.17647% {
+  /* line 403, layout.scss */
+  41.17645% {
     background-color: #247369;
   }
 
-  /* line 359, layout.scss */
-  47.05882% {
+  /* line 403, layout.scss */
+  47.0588% {
     background-color: #3e9a3a;
   }
 
-  /* line 359, layout.scss */
-  52.94118% {
+  /* line 403, layout.scss */
+  52.94115% {
     background-color: #92b440;
   }
 
-  /* line 359, layout.scss */
-  58.82353% {
+  /* line 403, layout.scss */
+  58.8235% {
     background-color: #bbba24;
   }
 
-  /* line 359, layout.scss */
-  64.70588% {
+  /* line 403, layout.scss */
+  64.70585% {
     background-color: #f8bc28;
   }
 
-  /* line 359, layout.scss */
-  70.58824% {
+  /* line 403, layout.scss */
+  70.5882% {
     background-color: #ff8f00;
   }
 
-  /* line 359, layout.scss */
-  76.47059% {
+  /* line 403, layout.scss */
+  76.47055% {
     background-color: #ef6c00;
   }
 
-  /* line 359, layout.scss */
-  82.35294% {
+  /* line 403, layout.scss */
+  82.3529% {
     background-color: #d84315;
   }
 
-  /* line 359, layout.scss */
-  88.23529% {
+  /* line 403, layout.scss */
+  88.23525% {
     background-color: #4e342e;
   }
 
-  /* line 359, layout.scss */
-  94.11765% {
+  /* line 403, layout.scss */
+  94.1176% {
     background-color: #414040;
   }
 
-  /* line 359, layout.scss */
-  100.0% {
+  /* line 403, layout.scss */
+  99.99995% {
     background-color: #37474f;
   }
 }
 
 @-moz-keyframes logo-color {
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   0% {
     background-color: #b9383c;
   }
 
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   5.88235% {
     background-color: #ae215f;
   }
 
-  /* line 359, layout.scss */
-  11.76471% {
+  /* line 403, layout.scss */
+  11.7647% {
     background-color: #541c77;
   }
 
-  /* line 359, layout.scss */
-  17.64706% {
+  /* line 403, layout.scss */
+  17.64705% {
     background-color: #462d91;
   }
 
-  /* line 359, layout.scss */
-  23.52941% {
+  /* line 403, layout.scss */
+  23.5294% {
     background-color: #3c468e;
   }
 
-  /* line 359, layout.scss */
-  29.41176% {
+  /* line 403, layout.scss */
+  29.41175% {
     background-color: #276990;
   }
 
-  /* line 359, layout.scss */
-  35.29412% {
+  /* line 403, layout.scss */
+  35.2941% {
     background-color: #00838f;
   }
 
-  /* line 359, layout.scss */
-  41.17647% {
+  /* line 403, layout.scss */
+  41.17645% {
     background-color: #247369;
   }
 
-  /* line 359, layout.scss */
-  47.05882% {
+  /* line 403, layout.scss */
+  47.0588% {
     background-color: #3e9a3a;
   }
 
-  /* line 359, layout.scss */
-  52.94118% {
+  /* line 403, layout.scss */
+  52.94115% {
     background-color: #92b440;
   }
 
-  /* line 359, layout.scss */
-  58.82353% {
+  /* line 403, layout.scss */
+  58.8235% {
     background-color: #bbba24;
   }
 
-  /* line 359, layout.scss */
-  64.70588% {
+  /* line 403, layout.scss */
+  64.70585% {
     background-color: #f8bc28;
   }
 
-  /* line 359, layout.scss */
-  70.58824% {
+  /* line 403, layout.scss */
+  70.5882% {
     background-color: #ff8f00;
   }
 
-  /* line 359, layout.scss */
-  76.47059% {
+  /* line 403, layout.scss */
+  76.47055% {
     background-color: #ef6c00;
   }
 
-  /* line 359, layout.scss */
-  82.35294% {
+  /* line 403, layout.scss */
+  82.3529% {
     background-color: #d84315;
   }
 
-  /* line 359, layout.scss */
-  88.23529% {
+  /* line 403, layout.scss */
+  88.23525% {
     background-color: #4e342e;
   }
 
-  /* line 359, layout.scss */
-  94.11765% {
+  /* line 403, layout.scss */
+  94.1176% {
     background-color: #414040;
   }
 
-  /* line 359, layout.scss */
-  100.0% {
+  /* line 403, layout.scss */
+  99.99995% {
     background-color: #37474f;
   }
 }
 
 @-ms-keyframes logo-color {
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   0% {
     background-color: #b9383c;
   }
 
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   5.88235% {
     background-color: #ae215f;
   }
 
-  /* line 359, layout.scss */
-  11.76471% {
+  /* line 403, layout.scss */
+  11.7647% {
     background-color: #541c77;
   }
 
-  /* line 359, layout.scss */
-  17.64706% {
+  /* line 403, layout.scss */
+  17.64705% {
     background-color: #462d91;
   }
 
-  /* line 359, layout.scss */
-  23.52941% {
+  /* line 403, layout.scss */
+  23.5294% {
     background-color: #3c468e;
   }
 
-  /* line 359, layout.scss */
-  29.41176% {
+  /* line 403, layout.scss */
+  29.41175% {
     background-color: #276990;
   }
 
-  /* line 359, layout.scss */
-  35.29412% {
+  /* line 403, layout.scss */
+  35.2941% {
     background-color: #00838f;
   }
 
-  /* line 359, layout.scss */
-  41.17647% {
+  /* line 403, layout.scss */
+  41.17645% {
     background-color: #247369;
   }
 
-  /* line 359, layout.scss */
-  47.05882% {
+  /* line 403, layout.scss */
+  47.0588% {
     background-color: #3e9a3a;
   }
 
-  /* line 359, layout.scss */
-  52.94118% {
+  /* line 403, layout.scss */
+  52.94115% {
     background-color: #92b440;
   }
 
-  /* line 359, layout.scss */
-  58.82353% {
+  /* line 403, layout.scss */
+  58.8235% {
     background-color: #bbba24;
   }
 
-  /* line 359, layout.scss */
-  64.70588% {
+  /* line 403, layout.scss */
+  64.70585% {
     background-color: #f8bc28;
   }
 
-  /* line 359, layout.scss */
-  70.58824% {
+  /* line 403, layout.scss */
+  70.5882% {
     background-color: #ff8f00;
   }
 
-  /* line 359, layout.scss */
-  76.47059% {
+  /* line 403, layout.scss */
+  76.47055% {
     background-color: #ef6c00;
   }
 
-  /* line 359, layout.scss */
-  82.35294% {
+  /* line 403, layout.scss */
+  82.3529% {
     background-color: #d84315;
   }
 
-  /* line 359, layout.scss */
-  88.23529% {
+  /* line 403, layout.scss */
+  88.23525% {
     background-color: #4e342e;
   }
 
-  /* line 359, layout.scss */
-  94.11765% {
+  /* line 403, layout.scss */
+  94.1176% {
     background-color: #414040;
   }
 
-  /* line 359, layout.scss */
-  100.0% {
+  /* line 403, layout.scss */
+  99.99995% {
     background-color: #37474f;
   }
 }
 
 @-o-keyframes logo-color {
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   0% {
     background-color: #b9383c;
   }
 
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   5.88235% {
     background-color: #ae215f;
   }
 
-  /* line 359, layout.scss */
-  11.76471% {
+  /* line 403, layout.scss */
+  11.7647% {
     background-color: #541c77;
   }
 
-  /* line 359, layout.scss */
-  17.64706% {
+  /* line 403, layout.scss */
+  17.64705% {
     background-color: #462d91;
   }
 
-  /* line 359, layout.scss */
-  23.52941% {
+  /* line 403, layout.scss */
+  23.5294% {
     background-color: #3c468e;
   }
 
-  /* line 359, layout.scss */
-  29.41176% {
+  /* line 403, layout.scss */
+  29.41175% {
     background-color: #276990;
   }
 
-  /* line 359, layout.scss */
-  35.29412% {
+  /* line 403, layout.scss */
+  35.2941% {
     background-color: #00838f;
   }
 
-  /* line 359, layout.scss */
-  41.17647% {
+  /* line 403, layout.scss */
+  41.17645% {
     background-color: #247369;
   }
 
-  /* line 359, layout.scss */
-  47.05882% {
+  /* line 403, layout.scss */
+  47.0588% {
     background-color: #3e9a3a;
   }
 
-  /* line 359, layout.scss */
-  52.94118% {
+  /* line 403, layout.scss */
+  52.94115% {
     background-color: #92b440;
   }
 
-  /* line 359, layout.scss */
-  58.82353% {
+  /* line 403, layout.scss */
+  58.8235% {
     background-color: #bbba24;
   }
 
-  /* line 359, layout.scss */
-  64.70588% {
+  /* line 403, layout.scss */
+  64.70585% {
     background-color: #f8bc28;
   }
 
-  /* line 359, layout.scss */
-  70.58824% {
+  /* line 403, layout.scss */
+  70.5882% {
     background-color: #ff8f00;
   }
 
-  /* line 359, layout.scss */
-  76.47059% {
+  /* line 403, layout.scss */
+  76.47055% {
     background-color: #ef6c00;
   }
 
-  /* line 359, layout.scss */
-  82.35294% {
+  /* line 403, layout.scss */
+  82.3529% {
     background-color: #d84315;
   }
 
-  /* line 359, layout.scss */
-  88.23529% {
+  /* line 403, layout.scss */
+  88.23525% {
     background-color: #4e342e;
   }
 
-  /* line 359, layout.scss */
-  94.11765% {
+  /* line 403, layout.scss */
+  94.1176% {
     background-color: #414040;
   }
 
-  /* line 359, layout.scss */
-  100.0% {
+  /* line 403, layout.scss */
+  99.99995% {
     background-color: #37474f;
   }
 }
 
 @keyframes logo-color {
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   0% {
     background-color: #b9383c;
   }
 
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   5.88235% {
     background-color: #ae215f;
   }
 
-  /* line 359, layout.scss */
-  11.76471% {
+  /* line 403, layout.scss */
+  11.7647% {
     background-color: #541c77;
   }
 
-  /* line 359, layout.scss */
-  17.64706% {
+  /* line 403, layout.scss */
+  17.64705% {
     background-color: #462d91;
   }
 
-  /* line 359, layout.scss */
-  23.52941% {
+  /* line 403, layout.scss */
+  23.5294% {
     background-color: #3c468e;
   }
 
-  /* line 359, layout.scss */
-  29.41176% {
+  /* line 403, layout.scss */
+  29.41175% {
     background-color: #276990;
   }
 
-  /* line 359, layout.scss */
-  35.29412% {
+  /* line 403, layout.scss */
+  35.2941% {
     background-color: #00838f;
   }
 
-  /* line 359, layout.scss */
-  41.17647% {
+  /* line 403, layout.scss */
+  41.17645% {
     background-color: #247369;
   }
 
-  /* line 359, layout.scss */
-  47.05882% {
+  /* line 403, layout.scss */
+  47.0588% {
     background-color: #3e9a3a;
   }
 
-  /* line 359, layout.scss */
-  52.94118% {
+  /* line 403, layout.scss */
+  52.94115% {
     background-color: #92b440;
   }
 
-  /* line 359, layout.scss */
-  58.82353% {
+  /* line 403, layout.scss */
+  58.8235% {
     background-color: #bbba24;
   }
 
-  /* line 359, layout.scss */
-  64.70588% {
+  /* line 403, layout.scss */
+  64.70585% {
     background-color: #f8bc28;
   }
 
-  /* line 359, layout.scss */
-  70.58824% {
+  /* line 403, layout.scss */
+  70.5882% {
     background-color: #ff8f00;
   }
 
-  /* line 359, layout.scss */
-  76.47059% {
+  /* line 403, layout.scss */
+  76.47055% {
     background-color: #ef6c00;
   }
 
-  /* line 359, layout.scss */
-  82.35294% {
+  /* line 403, layout.scss */
+  82.3529% {
     background-color: #d84315;
   }
 
-  /* line 359, layout.scss */
-  88.23529% {
+  /* line 403, layout.scss */
+  88.23525% {
     background-color: #4e342e;
   }
 
-  /* line 359, layout.scss */
-  94.11765% {
+  /* line 403, layout.scss */
+  94.1176% {
     background-color: #414040;
   }
 
-  /* line 359, layout.scss */
-  100.0% {
+  /* line 403, layout.scss */
+  99.99995% {
     background-color: #37474f;
   }
 }
 
 @-webkit-keyframes nav-color {
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   0% {
     color: #b9383c;
   }
 
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   5.88235% {
     color: #ae215f;
   }
 
-  /* line 359, layout.scss */
-  11.76471% {
+  /* line 403, layout.scss */
+  11.7647% {
     color: #541c77;
   }
 
-  /* line 359, layout.scss */
-  17.64706% {
+  /* line 403, layout.scss */
+  17.64705% {
     color: #462d91;
   }
 
-  /* line 359, layout.scss */
-  23.52941% {
+  /* line 403, layout.scss */
+  23.5294% {
     color: #3c468e;
   }
 
-  /* line 359, layout.scss */
-  29.41176% {
+  /* line 403, layout.scss */
+  29.41175% {
     color: #276990;
   }
 
-  /* line 359, layout.scss */
-  35.29412% {
+  /* line 403, layout.scss */
+  35.2941% {
     color: #00838f;
   }
 
-  /* line 359, layout.scss */
-  41.17647% {
+  /* line 403, layout.scss */
+  41.17645% {
     color: #247369;
   }
 
-  /* line 359, layout.scss */
-  47.05882% {
+  /* line 403, layout.scss */
+  47.0588% {
     color: #3e9a3a;
   }
 
-  /* line 359, layout.scss */
-  52.94118% {
+  /* line 403, layout.scss */
+  52.94115% {
     color: #92b440;
   }
 
-  /* line 359, layout.scss */
-  58.82353% {
+  /* line 403, layout.scss */
+  58.8235% {
     color: #bbba24;
   }
 
-  /* line 359, layout.scss */
-  64.70588% {
+  /* line 403, layout.scss */
+  64.70585% {
     color: #f8bc28;
   }
 
-  /* line 359, layout.scss */
-  70.58824% {
+  /* line 403, layout.scss */
+  70.5882% {
     color: #ff8f00;
   }
 
-  /* line 359, layout.scss */
-  76.47059% {
+  /* line 403, layout.scss */
+  76.47055% {
     color: #ef6c00;
   }
 
-  /* line 359, layout.scss */
-  82.35294% {
+  /* line 403, layout.scss */
+  82.3529% {
     color: #d84315;
   }
 
-  /* line 359, layout.scss */
-  88.23529% {
+  /* line 403, layout.scss */
+  88.23525% {
     color: #4e342e;
   }
 
-  /* line 359, layout.scss */
-  94.11765% {
+  /* line 403, layout.scss */
+  94.1176% {
     color: #414040;
   }
 
-  /* line 359, layout.scss */
-  100.0% {
+  /* line 403, layout.scss */
+  99.99995% {
     color: #37474f;
   }
 }
 
 @-moz-keyframes nav-color {
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   0% {
     color: #b9383c;
   }
 
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   5.88235% {
     color: #ae215f;
   }
 
-  /* line 359, layout.scss */
-  11.76471% {
+  /* line 403, layout.scss */
+  11.7647% {
     color: #541c77;
   }
 
-  /* line 359, layout.scss */
-  17.64706% {
+  /* line 403, layout.scss */
+  17.64705% {
     color: #462d91;
   }
 
-  /* line 359, layout.scss */
-  23.52941% {
+  /* line 403, layout.scss */
+  23.5294% {
     color: #3c468e;
   }
 
-  /* line 359, layout.scss */
-  29.41176% {
+  /* line 403, layout.scss */
+  29.41175% {
     color: #276990;
   }
 
-  /* line 359, layout.scss */
-  35.29412% {
+  /* line 403, layout.scss */
+  35.2941% {
     color: #00838f;
   }
 
-  /* line 359, layout.scss */
-  41.17647% {
+  /* line 403, layout.scss */
+  41.17645% {
     color: #247369;
   }
 
-  /* line 359, layout.scss */
-  47.05882% {
+  /* line 403, layout.scss */
+  47.0588% {
     color: #3e9a3a;
   }
 
-  /* line 359, layout.scss */
-  52.94118% {
+  /* line 403, layout.scss */
+  52.94115% {
     color: #92b440;
   }
 
-  /* line 359, layout.scss */
-  58.82353% {
+  /* line 403, layout.scss */
+  58.8235% {
     color: #bbba24;
   }
 
-  /* line 359, layout.scss */
-  64.70588% {
+  /* line 403, layout.scss */
+  64.70585% {
     color: #f8bc28;
   }
 
-  /* line 359, layout.scss */
-  70.58824% {
+  /* line 403, layout.scss */
+  70.5882% {
     color: #ff8f00;
   }
 
-  /* line 359, layout.scss */
-  76.47059% {
+  /* line 403, layout.scss */
+  76.47055% {
     color: #ef6c00;
   }
 
-  /* line 359, layout.scss */
-  82.35294% {
+  /* line 403, layout.scss */
+  82.3529% {
     color: #d84315;
   }
 
-  /* line 359, layout.scss */
-  88.23529% {
+  /* line 403, layout.scss */
+  88.23525% {
     color: #4e342e;
   }
 
-  /* line 359, layout.scss */
-  94.11765% {
+  /* line 403, layout.scss */
+  94.1176% {
     color: #414040;
   }
 
-  /* line 359, layout.scss */
-  100.0% {
+  /* line 403, layout.scss */
+  99.99995% {
     color: #37474f;
   }
 }
 
 @-ms-keyframes nav-color {
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   0% {
     color: #b9383c;
   }
 
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   5.88235% {
     color: #ae215f;
   }
 
-  /* line 359, layout.scss */
-  11.76471% {
+  /* line 403, layout.scss */
+  11.7647% {
     color: #541c77;
   }
 
-  /* line 359, layout.scss */
-  17.64706% {
+  /* line 403, layout.scss */
+  17.64705% {
     color: #462d91;
   }
 
-  /* line 359, layout.scss */
-  23.52941% {
+  /* line 403, layout.scss */
+  23.5294% {
     color: #3c468e;
   }
 
-  /* line 359, layout.scss */
-  29.41176% {
+  /* line 403, layout.scss */
+  29.41175% {
     color: #276990;
   }
 
-  /* line 359, layout.scss */
-  35.29412% {
+  /* line 403, layout.scss */
+  35.2941% {
     color: #00838f;
   }
 
-  /* line 359, layout.scss */
-  41.17647% {
+  /* line 403, layout.scss */
+  41.17645% {
     color: #247369;
   }
 
-  /* line 359, layout.scss */
-  47.05882% {
+  /* line 403, layout.scss */
+  47.0588% {
     color: #3e9a3a;
   }
 
-  /* line 359, layout.scss */
-  52.94118% {
+  /* line 403, layout.scss */
+  52.94115% {
     color: #92b440;
   }
 
-  /* line 359, layout.scss */
-  58.82353% {
+  /* line 403, layout.scss */
+  58.8235% {
     color: #bbba24;
   }
 
-  /* line 359, layout.scss */
-  64.70588% {
+  /* line 403, layout.scss */
+  64.70585% {
     color: #f8bc28;
   }
 
-  /* line 359, layout.scss */
-  70.58824% {
+  /* line 403, layout.scss */
+  70.5882% {
     color: #ff8f00;
   }
 
-  /* line 359, layout.scss */
-  76.47059% {
+  /* line 403, layout.scss */
+  76.47055% {
     color: #ef6c00;
   }
 
-  /* line 359, layout.scss */
-  82.35294% {
+  /* line 403, layout.scss */
+  82.3529% {
     color: #d84315;
   }
 
-  /* line 359, layout.scss */
-  88.23529% {
+  /* line 403, layout.scss */
+  88.23525% {
     color: #4e342e;
   }
 
-  /* line 359, layout.scss */
-  94.11765% {
+  /* line 403, layout.scss */
+  94.1176% {
     color: #414040;
   }
 
-  /* line 359, layout.scss */
-  100.0% {
+  /* line 403, layout.scss */
+  99.99995% {
     color: #37474f;
   }
 }
 
 @-o-keyframes nav-color {
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   0% {
     color: #b9383c;
   }
 
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   5.88235% {
     color: #ae215f;
   }
 
-  /* line 359, layout.scss */
-  11.76471% {
+  /* line 403, layout.scss */
+  11.7647% {
     color: #541c77;
   }
 
-  /* line 359, layout.scss */
-  17.64706% {
+  /* line 403, layout.scss */
+  17.64705% {
     color: #462d91;
   }
 
-  /* line 359, layout.scss */
-  23.52941% {
+  /* line 403, layout.scss */
+  23.5294% {
     color: #3c468e;
   }
 
-  /* line 359, layout.scss */
-  29.41176% {
+  /* line 403, layout.scss */
+  29.41175% {
     color: #276990;
   }
 
-  /* line 359, layout.scss */
-  35.29412% {
+  /* line 403, layout.scss */
+  35.2941% {
     color: #00838f;
   }
 
-  /* line 359, layout.scss */
-  41.17647% {
+  /* line 403, layout.scss */
+  41.17645% {
     color: #247369;
   }
 
-  /* line 359, layout.scss */
-  47.05882% {
+  /* line 403, layout.scss */
+  47.0588% {
     color: #3e9a3a;
   }
 
-  /* line 359, layout.scss */
-  52.94118% {
+  /* line 403, layout.scss */
+  52.94115% {
     color: #92b440;
   }
 
-  /* line 359, layout.scss */
-  58.82353% {
+  /* line 403, layout.scss */
+  58.8235% {
     color: #bbba24;
   }
 
-  /* line 359, layout.scss */
-  64.70588% {
+  /* line 403, layout.scss */
+  64.70585% {
     color: #f8bc28;
   }
 
-  /* line 359, layout.scss */
-  70.58824% {
+  /* line 403, layout.scss */
+  70.5882% {
     color: #ff8f00;
   }
 
-  /* line 359, layout.scss */
-  76.47059% {
+  /* line 403, layout.scss */
+  76.47055% {
     color: #ef6c00;
   }
 
-  /* line 359, layout.scss */
-  82.35294% {
+  /* line 403, layout.scss */
+  82.3529% {
     color: #d84315;
   }
 
-  /* line 359, layout.scss */
-  88.23529% {
+  /* line 403, layout.scss */
+  88.23525% {
     color: #4e342e;
   }
 
-  /* line 359, layout.scss */
-  94.11765% {
+  /* line 403, layout.scss */
+  94.1176% {
     color: #414040;
   }
 
-  /* line 359, layout.scss */
-  100.0% {
+  /* line 403, layout.scss */
+  99.99995% {
     color: #37474f;
   }
 }
 
 @keyframes nav-color {
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   0% {
     color: #b9383c;
   }
 
-  /* line 359, layout.scss */
+  /* line 403, layout.scss */
   5.88235% {
     color: #ae215f;
   }
 
-  /* line 359, layout.scss */
-  11.76471% {
+  /* line 403, layout.scss */
+  11.7647% {
     color: #541c77;
   }
 
-  /* line 359, layout.scss */
-  17.64706% {
+  /* line 403, layout.scss */
+  17.64705% {
     color: #462d91;
   }
 
-  /* line 359, layout.scss */
-  23.52941% {
+  /* line 403, layout.scss */
+  23.5294% {
     color: #3c468e;
   }
 
-  /* line 359, layout.scss */
-  29.41176% {
+  /* line 403, layout.scss */
+  29.41175% {
     color: #276990;
   }
 
-  /* line 359, layout.scss */
-  35.29412% {
+  /* line 403, layout.scss */
+  35.2941% {
     color: #00838f;
   }
 
-  /* line 359, layout.scss */
-  41.17647% {
+  /* line 403, layout.scss */
+  41.17645% {
     color: #247369;
   }
 
-  /* line 359, layout.scss */
-  47.05882% {
+  /* line 403, layout.scss */
+  47.0588% {
     color: #3e9a3a;
   }
 
-  /* line 359, layout.scss */
-  52.94118% {
+  /* line 403, layout.scss */
+  52.94115% {
     color: #92b440;
   }
 
-  /* line 359, layout.scss */
-  58.82353% {
+  /* line 403, layout.scss */
+  58.8235% {
     color: #bbba24;
   }
 
-  /* line 359, layout.scss */
-  64.70588% {
+  /* line 403, layout.scss */
+  64.70585% {
     color: #f8bc28;
   }
 
-  /* line 359, layout.scss */
-  70.58824% {
+  /* line 403, layout.scss */
+  70.5882% {
     color: #ff8f00;
   }
 
-  /* line 359, layout.scss */
-  76.47059% {
+  /* line 403, layout.scss */
+  76.47055% {
     color: #ef6c00;
   }
 
-  /* line 359, layout.scss */
-  82.35294% {
+  /* line 403, layout.scss */
+  82.3529% {
     color: #d84315;
   }
 
-  /* line 359, layout.scss */
-  88.23529% {
+  /* line 403, layout.scss */
+  88.23525% {
     color: #4e342e;
   }
 
-  /* line 359, layout.scss */
-  94.11765% {
+  /* line 403, layout.scss */
+  94.1176% {
     color: #414040;
   }
 
-  /* line 359, layout.scss */
-  100.0% {
+  /* line 403, layout.scss */
+  99.99995% {
     color: #37474f;
   }
 }
 
-/* line 374, layout.scss */
+/* line 421, layout.scss */
 header .nav {
   box-shadow: none;
-  line-height: 73px;
+  line-height: 85px;
+  padding: 0 70px;
 }
-/* line 379, layout.scss */
+/* line 427, layout.scss */
 header .nav .brand-logo, header .nav ul {
   text-transform: uppercase;
+  z-index: 10;
 }
-/* line 384, layout.scss */
+/* line 433, layout.scss */
 header .nav .brand-logo {
   top: 10px;
   left: 70px;
   background: white url("../images/logo.png") no-repeat left;
   z-index: 1;
   width: 54px;
-  height: 65px;
+  height: 73px;
   background-size: contain;
   color: #383A48;
   font-size: 37px;
   font-size: 2.3125rem;
   padding-left: 60px;
 }
-/* line 398, layout.scss */
+/* line 447, layout.scss */
 header .nav ul {
-  top: 0px;
+  top: 1px;
   right: 70px;
   margin: 0;
   padding: 0;
+  margin-right: 175px;
 }
-/* line 404, layout.scss */
-header .nav ul li {
+/* line 454, layout.scss */
+header .nav ul li.nav-link {
   font-weight: 500;
 }
-/* line 409, layout.scss */
-header .nav ul li:not(:last-of-type):after {
+/* line 458, layout.scss */
+header .nav ul li.nav-link:not(:last-of-type):after {
   content: "";
   width: 2px;
-  background: #383A48;
+  background: #CFCFCF;
   height: 14px;
   top: 50%;
   margin-top: -5px;
   margin-left: 100%;
 }
-/* line 420, layout.scss */
-header .nav ul li a {
+/* line 468, layout.scss */
+header .nav ul li.nav-link a {
   display: block;
   padding: 6px 20px 0 20px;
   color: #383A48;
 }
-
-/* line 430, layout.scss */
-.warpper {
-  padding-top: 85px;
+/* line 473, layout.scss */
+header .nav ul li.nav-link a:hover {
+  color: #1D8BD9 !important;
 }
-/* line 437, layout.scss */
+/* line 479, layout.scss */
+header .nav .contact-section {
+  z-index: 11;
+  padding: 25px;
+}
+/* line 483, layout.scss */
+header .nav .contact-section .contact-link {
+  height: 48px;
+  background-color: #1D8BD9;
+}
+
+/* line 491, layout.scss */
+.warpper {
+  padding-top: 100px;
+}
+/* line 497, layout.scss */
 .warpper .warpper-container .brand-intro {
   background: #127AC1;
-  height: 300px;
+  height: 420px;
+}
+/* line 502, layout.scss */
+.warpper .warpper-container .brand-intro .steve-rep {
+  background: url(../images/steve-rep.jpg) right top no-repeat;
+  background-size: contain;
+  width: 400px;
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+/* line 512, layout.scss */
+.warpper .warpper-container .brand-intro .steve-quote {
+  padding: 80px;
+  line-height: 55px;
+  padding-right: 300px;
+  font-weight: 100;
+  color: #fff;
+  font-size: 30px;
+  font-family: "Roboto Slab";
+}
+/* line 522, layout.scss */
+.warpper .warpper-container .brand-intro .steve-quote span {
+  font-weight: 400;
+  text-shadow: 2px 2px 2px #296994;
+}
+/* line 526, layout.scss */
+.warpper .warpper-container .brand-intro .steve-quote .em-highlight {
+  background: #fff;
+  padding: 0px 10px 2px 10px;
+  color: #127AC1;
+  text-shadow: none;
+}
+/* line 533, layout.scss */
+.warpper .warpper-container .brand-intro .steve-quote .em {
+  font-size: 40px;
+}
+/* line 537, layout.scss */
+.warpper .warpper-container .brand-intro .steve-quote .fa-heart {
+  font-size: 40px;
+}
+/* line 541, layout.scss */
+.warpper .warpper-container .brand-intro .steve-quote .fa-quote-left {
+  font-size: 51px;
+  top: 70px;
+  left: 55px;
+  opacity: 0.2;
+}
+/* line 551, layout.scss */
+.warpper .warpper-container .content-container {
+  padding: 0 300px 0 70px;
+  margin-top: -100px;
+}
+/* line 556, layout.scss */
+.warpper .warpper-container .content-container .floating-panel {
+  right: 120px;
+  top: 73px;
+}
+/* line 562, layout.scss */
+.warpper .warpper-container .content-container .content-base {
+  background: #fff;
+  border-radius: 2px;
+  padding: 20px;
+  min-height: 300px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+/* line 570, layout.scss */
+.warpper .warpper-container .content-footer {
+  margin-top: 40px;
+  background-color: #157ABF;
+  padding: 30px 70px;
+  height: 219px;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* line 584, layout.scss */
+  header .nav {
+    padding: 0;
+  }
+  /* line 585, layout.scss */
+  header .nav ul {
+    right: 0;
+  }
+  /* line 589, layout.scss */
+  header .nav .brand-logo {
+    left: 20px;
+  }
+
+  /* line 596, layout.scss */
+  .warpper .warpper-container .brand-intro {
+    height: 315px;
+  }
+  /* line 598, layout.scss */
+  .warpper .warpper-container .brand-intro .steve-quote {
+    padding: 40px 30px;
+    line-height: 40px;
+    padding-right: 222px;
+    font-size: 25px;
+    font-size: 1.5625rem;
+  }
+  /* line 603, layout.scss */
+  .warpper .warpper-container .brand-intro .steve-quote .fa-quote-left {
+    top: 32px;
+    left: 16px;
+    font-size: 35px;
+    font-size: 2.1875rem;
+  }
+  /* line 608, layout.scss */
+  .warpper .warpper-container .brand-intro .steve-quote .em, .warpper .warpper-container .brand-intro .steve-quote .fa-heart {
+    font-size: 32px;
+    font-size: 2rem;
+  }
+  /* line 612, layout.scss */
+  .warpper .warpper-container .brand-intro .steve-rep {
+    width: 222px;
+  }
+  /* line 616, layout.scss */
+  .warpper .warpper-container .content-container {
+    padding: 0 200px 0 30px;
+  }
+  /* line 618, layout.scss */
+  .warpper .warpper-container .content-container .floating-panel {
+    right: 72px;
+  }
 }
