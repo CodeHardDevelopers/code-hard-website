@@ -1,0 +1,23 @@
+{
+  "name": "codehard.in",
+  "version": "0.0.0",
+  "authors": [
+    "Prasanth <prashanth702@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~1.0.1"
+  }
+}
