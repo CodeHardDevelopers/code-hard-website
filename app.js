@@ -1,1 +1,1 @@
-angular.module('codehardApp', []);
+angular.module('codehard', []);

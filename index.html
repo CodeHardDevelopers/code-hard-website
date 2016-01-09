@@ -1,79 +1,127 @@
-<html !>
+<!DOCTYPE html>
+<html ng-app="codehard">
+
 <head>
-	<meta charset="utf-8">
-	<title>CodeHard Developers</title>
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,300|Roboto+Condensed' rel='stylesheet' type='text/css'>
-	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
-	<link rel=stylesheet href="css/bootstrap.min.css">
-	<link rel=stylesheet href="css/layout.css">
+  <meta charset="utf-8">
+  <title>CODEHARD</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300|Roboto+Condensed:400,300,700|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="./lib/angular-material/angular-material.min.css" />
+  <link rel="stylesheet" href="./css/layout.css" />
 </head>
-<body ng-app="codehardApp" class="ng-cloak codehard-index">
-	<div ng-controller="IndexController as iCtrl" class="app-landing">
-		<header id="header" header-collapse>
-			<div class="header-wrapper" ng-controller="NavController as nCtrl">
-				<div class="inline-block align-top">
-					<div class="logo"></div>
-				</div>
-				<div class="menu-container align-top">					
-					<nav class="nav">
-						<input type="checkbox" ng-model="nCtrl.toggleMenu" id="button">
-						<label for="button" onclick></label>
-						<div class="toggle-menu" toggle-menu="nCtrl.toggleMenu">
-							<ul>
-								<li ng-repeat="nav in nCtrl.navList track by nav.hash">									
-									<a ng-class="{selected: nCtrl.getSelected(nav)}" ng-href="#/{{nav.hash}}" ng-bind="nav.title"></a>
-								</li><!-- /ng-repeat NavController navList -->
-							</ul>
-						</div>
-					</nav>
-				</div>
-				<div class="social-link">
-					<ul>
-						<li ng-repeat="social in nCtrl.socialList">
-							<a ng-href="{{social.url}}" target="_blank">
-								<img ng-src="{{social.icon}}" alt="" />
-							</a>
-						</li>				   
-					</ul>
-				</div>
-			</div><!-- /NavController -->
-		</header><!-- /header -->
-		<div class="wrapper">
-			<div class="container">
-				<div>
-					<div ng-repeat="nav in iCtrl.navList track by nav.hash">
-						<div class="img-holder" data-image="images/backgrounds/1.jpg"></div>
-						<section>
-							<div style="height:100px" ng-bind="nav.title"></div>
-						</section>
-					</div>
-				</div>
-			</div>
-		</div><!-- /div wrapper -->
-		<footer>
-			<div></div>
-		</footer><!-- /footer -->
-	</div><!-- /IndexController -->
-	<script src="js/jquery-1.7.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/angular.min.js"></script>
-	<script src="js/jquery.scroll.min.js"></script>
 
-	<script src="app.js"></script>
-	<script src="sections/index/index_controller.js"></script>
-	<script src="sections/index/nav_controller.js"></script>
-	<script src="components/index/index_service.js"></script>
-	<script src="components/index/index_directive.js"></script>
+<body ng-cloak>
+  <div class="page-layout" layout="row" layout-align="space-between stretch">
+    <div class="brand-layout" layout="row" layout-align="start stretch">
+      <div class="brand-layout-wrapper" layout="column" layout-align="space-between stretch">
+        <div class="brand-logo">
 
-	<script type="text/javascript">	
-		$(document).ready(function(){
-			$('.img-holder').imageScroll({
-				container:$(".container")
-			});
-		});
+        </div>
+        <div class="brand-footer">
+          <div class="brand-copyright">
+            <span class="brand-copyright-icon">&copy;</span>
+            <span class="brand-copyright-info">2015 CODEHARD Developers, Inc.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-content" layout="column" layout-align="space-between stretch">
+      <div class="page-content-layout">
+        <div class="page-content-container">
+          <h1>We are
+            <span>CODEHARD</span> developers.</h1>
+          <md-content class="page-content-wrapper md-whiteframe-3dp">
+            <div class="page-content-frame">
+              <div>
+                <div layout="row" layout-align="space-between stretch">
+                  <div>
+                    <div class="about-text">
+                      Highly motivated young kick starters roaming in Madras. To stay connected likes on facebook or say hello! to us at <a href="mailto:hello@codehard.in">hello@codehard.in</a>.
+                    </div>
+                  </div>
+                  <div class="fb-like">
+                    <a class="like-button" target="_blank" href="https://www.facebook.com/moovieaddict">
 
-		 
-	</script>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="app-info">
+              <div class="app-info-wrapper">
+                <div>
+                  <h3>Now,
+                    <span>here we are</span>
+                  </h3>
 
-</body><!-- /codehardApp body -->
+                  <div class="app-content">
+                    <div layout="row" layout-align="space-between stretch">
+                      <div class="app-icon-wrapper">
+                        <div class="app-icon">
+
+                        </div>
+
+                      </div>
+                      <div class="app-content-text">
+                        <div class="app-name">
+                          Movie
+                          <span>Addict</span>
+                          <span class="sub">2.0</span>
+                        </div>
+                        <p>
+                          While we roaming around, we have crafted a piece of software to make everyone to engaged with cine news and updates. We hope everyone will amaze with the quality of the content and supporting software which no one have experienced ever before.
+                        </p>
+                        <div>
+                          <a target="_blank" href="http://www.movieaddict.in">movieaddict.in</a>
+                        </div>
+                        <div class="store-links">                          
+                          <a href="https://play.google.com/store/apps/details?id=com.codehard.movieaddict&hl=en&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-AC-global-none-all-co-pr-py-PartBadges-Oct1515-1" target="_blank">
+                            <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/apps/en-play-badge.png" />
+                          </a>
+
+                          <a href="https://itunes.apple.com/us/app/movie-addict/id1062237647?ls=1&mt=8" target="_blank">
+                            <img alt="Get it on App Store" src="images/app_store_badge.svg" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </md-content>
+        </div>
+      </div>
+      <div class="page-footer">
+        <div class="social-links">
+          <a href="https://www.facebook.com/moovieaddict" target="_blank">FACEBOOK</a>
+          <a href="https://plus.google.com/+MovieaddictIndiaApp" target="_blank">GOOGLE +</a>
+          <a href="https://twitter.com/movieaddictapp" target="_blank">TWITTER</a>
+          <a href="https://www.youtube.com/channel/UCdp4zVYrbOd1XsZe01--acg" target="_blank">YOUTUBE</a>
+        </div>
+      </div>
+    </div>
+    <div class="steve-banner" layout="row" layout-align="start stretch">
+      <div class="steve-banner-layout" layout="row" layout-align="end end">
+        <div class="steve-banner-content">
+          <p class="steve-text">
+            " Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to what you do. "
+          </p>
+          <div class="steve-signature">
+            <div class="steve-signature-icon">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="./lib/angular/angular.min.js"></script>
+  <script type="text/javascript" src="./lib/angular-animate/angular-animate.min.js"></script>
+  <script type="text/javascript" src="./lib/angular-aria/angular-aria.min.js"></script>
+  <script type="text/javascript" src="./lib/angular-material/angular-material.min.js"></script>
+  <script type="text/javascript" src="./js/app.js"></script>
+</body>
+
 </html>
