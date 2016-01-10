@@ -6,42 +6,42 @@
   font-size: $sizeValue + rem;
 }
 @mixin screen-xs {
-  @media (max-width: 767px) {
+  @media (max-width: 600px) {
     @content;
   }
 }
 @mixin screen-sm {
-  @media (min-width: 768px) and (max-width: 991px) {
+  @media (min-width: 600px) and (max-width: 960px) {
     @content;
   }
 }
 @mixin screen-sm-md-lg {
-  @media (min-width: 768px) {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+@mixin screen-xs-sm-md {
+  @media (max-width: 1280px) {
     @content;
   }
 }
 @mixin screen-xs-sm {
-  @media (max-width: 991px) {
+  @media (max-width: 960px) {
     @content;
   }
 }
 @mixin screen-md {
-  @media (min-width: 992px) and (max-width: 1199px) {
+  @media (min-width: 960px) and (max-width: 1280px) {
     @content;
   }
 }
 @mixin screen-lg {
-  @media (min-width: 1200px) {
-    @content;
-  }
-}
-@mixin screen-xl {
-  @media (min-width: 1400px) {
+  @media (min-width: 1280px) {
     @content;
   }
 }
 @mixin screen-md-lg {
-  @media (min-width: 992px) {
+  @media (min-width: 960px) {
     @content;
   }
 }
@@ -395,6 +395,37 @@ a {
   @extend %full-width;
   @extend %full-height;
   padding: 16px 24px;
+  @include screen-xs-sm-md {
+    background: $bg-color url(../images/steve.png) right no-repeat;
+    background-blend-mode: luminosity;
+    background-size: contain;
+  }
+  @include screen-xs-sm {
+    background-size: cover;
+    background-position: center;
+  }
+  @include screen-xs {
+    width: auto;
+    height: auto;
+  }
+  .sec-brand-copyright {
+    display: none;
+    text-align: center;
+    padding-top: 24px;
+    color: #a6c4dc;
+    white-space: nowrap;
+    .brand-copyright-info {
+      font-family: 'Roboto Condensed';
+    }
+    .brand-copyright-icon {
+      padding-right: 5px;
+      @include font-size(1.8);
+    }
+
+    @include screen-xs-sm {
+      display: block;
+    }
+  }
   .page-content-layout {
     @extend %relative;
     @extend %full-height;
@@ -424,16 +455,38 @@ a {
       }
     }
     .page-content-container {
-      @extend %absolute;
-      @extend %full-width;
-      left: -198px;
-      top: 50%;
-      @include transform(translateY(-50%));
+      @include screen-lg {
+        position: absolute;
+        left: -198px;
+        top: 50%;
+        @include transform(translateY(-50%));
+      }
+      @include screen-md-lg {
+        min-width: 700px;
+      }
+      .sec-brand-logo {
+        @extend %full-width;
+        margin-left: auto;
+        display: none;
+        margin-right: auto;
+        margin-bottom: 24px;
+        max-width: 225px;
+        height: 48px;
+        background: url(../images/codehard.png) no-repeat;
+        background-size: contain;
+        @include screen-xs-sm {
+          display: block;
+        }
+      }
       .page-content-wrapper {
         border-radius: 5px;
+        overflow: hidden;
         .page-content-frame {
           padding: 24px 0 24px 24px;
           border-bottom: #ddd thin solid;
+          @include screen-xs {
+            padding: 24px;
+          }
           .about-text {
             line-height: 28px;
             text-align: justify;
@@ -451,6 +504,9 @@ a {
             max-width: 92px;
             height: 56px;
             text-align: center;
+            @include screen-xs {
+              margin: auto;
+            }
             a {
               width: 56px;
               height: 56px;
@@ -465,7 +521,12 @@ a {
     }
   }
   .social-links {
+    padding-top: 24px;
+    @include screen-xs {
+      text-align: center;
+    }
     a {
+      
       @extend %transition;
       font-weight: 500;
       color: #a6c4dc;
@@ -489,6 +550,9 @@ a {
   }
   position: relative;
   z-index: 1;
+  @include screen-xs {
+    text-align: center;
+  }
   h3 {
     color: #32AC96;
     font-weight: 700;
@@ -500,7 +564,6 @@ a {
   }
   p {
     line-height: 26px;
-
     text-align: justify;
   }
   .app-icon {
@@ -509,6 +572,9 @@ a {
     height: 167px;
     background-position: center;
     background-size: 80%;
+    @include screen-xs {
+      margin: auto;
+    }
   }
   a {
     color: #32AC96;
@@ -519,27 +585,29 @@ a {
   .app-name {
     color: #32AC96;
     @include font-size(2.8);
-
     span {
       font-family: 'Roboto Condensed';
       color: #5A5A5A;
     }
-
-    .sub{
+    .sub {
       @include font-size(1.6);
       padding-left: 3px;
     }
   }
   .app-content-text {
     padding-left: 24px;
+    @include screen-xs {
+      padding: 0;
+    }
   }
 }
-.store-links{
+.store-links {
+  display: none;
   margin-top: 24px;
-  a{
+  a {
     width: 200px;
     margin-right: 24px;
-    img{
+    img {
       width: 200px;
     }
   }
