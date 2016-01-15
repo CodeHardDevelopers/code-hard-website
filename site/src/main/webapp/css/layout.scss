@@ -526,7 +526,7 @@ a {
       text-align: center;
     }
     a {
-      
+
       @extend %transition;
       font-weight: 500;
       color: #a6c4dc;
@@ -601,8 +601,7 @@ a {
     }
   }
 }
-.store-links {
-  display: none;
+.store-links {  
   margin-top: 24px;
   a {
     width: 200px;
