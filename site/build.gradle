@@ -29,6 +29,7 @@ dependencies {
 appengine {
     downloadSdk = true
     appcfg {
+        noCookies = true
         oauth2 = true
     }
 }
